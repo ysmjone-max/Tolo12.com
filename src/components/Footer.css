@@ -1,0 +1,85 @@
+.footer-section {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 4rem 0 2rem 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.footer-desc {
+  color: #CBD5E1;
+  max-width: 400px;
+}
+
+.footer-links h4, .footer-hours h4 {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: var(--accent-color);
+}
+
+.footer-links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-links a {
+  color: #CBD5E1;
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--secondary-color);
+}
+
+.footer-hours p {
+  color: #CBD5E1;
+  margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: #94A3B8;
+  font-size: 0.9rem;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-legal a {
+  color: #94A3B8;
+}
+
+.footer-legal a:hover {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}

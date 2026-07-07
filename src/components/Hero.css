@@ -1,0 +1,113 @@
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  /* Placeholder image of shipping/construction, a dark blue overlay will be applied */
+  background-image: url('https://images.unsplash.com/photo-1586528116311-ad8ed7a66a50?auto=format&fit=crop&q=80&w=2000');
+  background-size: cover;
+  background-position: center;
+  padding-top: 80px; /* Space for navbar */
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.8) 100%);
+  z-index: 1;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hero-content {
+  max-width: 800px;
+  color: white;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: var(--secondary-color);
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #E5E7EB;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+}
+
+.trust-statement {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 1.5rem;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #D1D5DB;
+}
+
+.trust-icon {
+  color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .hero-btn {
+    width: 100%;
+  }
+  
+  .trust-statement {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
