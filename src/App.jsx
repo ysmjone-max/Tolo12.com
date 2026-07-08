@@ -292,9 +292,9 @@ function App() {
 
                 <h4 style={{ marginTop: '2rem', marginBottom: '1rem' }}>{t.contact.social}</h4>
                 <div className="social-links" style={{ gap: '1.5rem' }}>
-                  <a href="#" className="social-link"><FaFacebook size={28} /></a>
-                  <a href="#" className="social-link"><FaInstagram size={28} /></a>
-                  <a href="#" className="social-link"><FaTiktok size={28} /></a>
+                  <a href="https://www.facebook.com/profile.php?id=61591924945173" target="_blank" rel="noopener noreferrer" className="social-link"><FaFacebook size={28} /></a>
+                  <a href="https://www.instagram.com/tologhebeya/" target="_blank" rel="noopener noreferrer" className="social-link"><FaInstagram size={28} /></a>
+                  <a href="https://www.tiktok.com/@tologhebeya?_r=1&_t=ZN-97rv7b5LiKp" target="_blank" rel="noopener noreferrer" className="social-link"><FaTiktok size={28} /></a>
                   <a href="#" className="social-link"><FaTelegram size={28} /></a>
                 </div>
               </div>
