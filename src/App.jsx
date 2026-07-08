@@ -78,20 +78,6 @@ function App() {
           </a>
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-            <div className="lang-switcher">
-              <button 
-                className={`lang-btn ${language === 'am' ? 'active' : ''}`}
-                onClick={() => changeLanguage('am')}
-              >
-                🇪🇹 አማርኛ
-              </button>
-              <button 
-                className={`lang-btn ${language === 'en' ? 'active' : ''}`}
-                onClick={() => changeLanguage('en')}
-              >
-                Eng English
-              </button>
-            </div>
             <a href="#contact" className="btn-primary">{t.nav.contact}</a>
           </div>
         </div>
@@ -344,8 +330,26 @@ function App() {
             </div>
           </div>
           
-          <div className="footer-bottom">
-            &copy; {new Date().getFullYear()} {t.footer.rights}
+          <div className="footer-bottom" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
+            <div className="lang-switcher" style={{ display: 'flex', justifyContent: 'center' }}>
+              <button 
+                className={`lang-btn ${language === 'am' ? 'active' : ''}`}
+                onClick={() => changeLanguage('am')}
+                style={{ minWidth: '120px' }}
+              >
+                🇪🇹 አማርኛ
+              </button>
+              <button 
+                className={`lang-btn ${language === 'en' ? 'active' : ''}`}
+                onClick={() => changeLanguage('en')}
+                style={{ minWidth: '120px' }}
+              >
+                Eng English
+              </button>
+            </div>
+            <div style={{ opacity: 0.8 }}>
+              &copy; {new Date().getFullYear()} {t.footer.rights}
+            </div>
           </div>
         </div>
       </footer>
