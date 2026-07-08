@@ -140,7 +140,10 @@ function App() {
             <div className="intro-content">
               <h2 className="section-title">{t.intro.title}</h2>
               <p className="intro-text">
-                {t.intro.p1_1} <strong>{t.intro.p1_2}</strong>
+                {t.intro.p1_1}
+              </p>
+              <p className="intro-text" style={{ textAlign: 'center', color: 'var(--color-accent-green)', fontWeight: 'bold', fontSize: '1.5rem', marginTop: '1rem', marginBottom: '2rem' }}>
+                {t.intro.p1_2}
               </p>
               <p className="intro-text">
                 {t.intro.p2}
