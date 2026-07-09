@@ -67,14 +67,14 @@ nav {
 }
 
 .hero-title {
-  font-size: 4rem;
-  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1.5rem;
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
   color: var(--color-text-muted);
   margin-bottom: 2.5rem;
   max-width: 600px;
@@ -427,10 +427,16 @@ footer {
 /* Responsive */
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 8vw, 3rem);
   }
   .contact-container {
     grid-template-columns: 1fr;
+  }
+  .marquee-content {
+    gap: 2rem;
+  }
+  .marquee-content span {
+    font-size: 1.2rem;
   }
   .fab-whatsapp {
     bottom: 1.5rem;
