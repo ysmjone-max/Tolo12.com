@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 import { 
   Menu, 
+  Settings,
   Activity, 
   CheckCircle2,
   MessageSquare,
