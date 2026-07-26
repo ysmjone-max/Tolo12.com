@@ -131,26 +131,20 @@ function App() {
       </section>
 
       {/* Automotive Brand Marquee */}
-      <div className="trust-marquee" style={{ backgroundColor: '#ffffff', padding: '1.5rem 0' }}>
-        <div className="marquee-content" style={{ display: 'flex', alignItems: 'center', gap: '4rem' }}>
-          <SiToyota size={50} color="#EB0A1E" />
-          <SiHyundai size={50} color="#002C5F" />
-          <SiKia size={50} color="#05141F" />
-          <SiVolkswagen size={50} color="#001E50" />
-          <SiFord size={50} color="#003478" />
-          <SiBmw size={50} color="#0066B1" />
-          <SiSuzuki size={50} color="#E32028" />
-          <SiCaterpillar size={50} color="#FFB81C" />
-          
-          {/* Duplicate for infinite loop effect */}
-          <SiToyota size={50} color="#EB0A1E" />
-          <SiHyundai size={50} color="#002C5F" />
-          <SiKia size={50} color="#05141F" />
-          <SiVolkswagen size={50} color="#001E50" />
-          <SiFord size={50} color="#003478" />
-          <SiBmw size={50} color="#0066B1" />
-          <SiSuzuki size={50} color="#E32028" />
-          <SiCaterpillar size={50} color="#FFB81C" />
+      <div className="trust-marquee">
+        <div className="marquee-content">
+          {[...Array(3)].map((_, i) => (
+            <div key={i} className="marquee-set">
+              <div className="logo-3d-wrapper"><SiToyota size={90} color="#EB0A1E" /></div>
+              <div className="logo-3d-wrapper"><SiHyundai size={90} color="#002C5F" /></div>
+              <div className="logo-3d-wrapper"><SiKia size={90} color="#05141F" /></div>
+              <div className="logo-3d-wrapper"><SiVolkswagen size={90} color="#001E50" /></div>
+              <div className="logo-3d-wrapper"><SiFord size={90} color="#003478" /></div>
+              <div className="logo-3d-wrapper"><SiBmw size={90} color="#0066B1" /></div>
+              <div className="logo-3d-wrapper"><SiSuzuki size={90} color="#E32028" /></div>
+              <div className="logo-3d-wrapper"><SiCaterpillar size={90} color="#FFB81C" /></div>
+            </div>
+          ))}
         </div>
       </div>
 
