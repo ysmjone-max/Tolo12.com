@@ -11,6 +11,10 @@ nav {
   padding: 1rem 0;
 }
 
+section {
+  padding: var(--space-section) 0;
+}
+
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -34,11 +38,11 @@ nav {
   transform: scale(1.1);
 }
 
+/* Full Screen Mobile Menu */
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  right: 0;
-  margin-top: 1rem;
+  left: 0;
   width: 250px;
   display: flex;
   flex-direction: column;
@@ -46,15 +50,32 @@ nav {
   padding: 1.5rem;
   box-shadow: 0 15px 35px rgba(0,0,0,0.5);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--color-primary-dark);
 }
 
-.dropdown-lang {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    margin-top: 0 !important;
+    padding: 6rem 2rem 2rem;
+    z-index: 99;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dropdown-links {
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .dropdown-links a {
+    font-size: 1.5rem;
+  }
 }
 
 .dropdown-links {
@@ -95,7 +116,7 @@ nav {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 5rem;
+  padding-top: var(--space-section);
   overflow: hidden;
 }
 
@@ -426,15 +447,28 @@ footer {
   transform: translateY(0);
 }
 
-/* Trust Marquee */
+/* Automotive Brand Marquee */
 .trust-marquee {
   width: 100%;
   overflow: hidden;
-  background: var(--color-primary-light);
-  padding: 1.5rem 0;
+  background: var(--color-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
-  display: flex;
-  align-items: center;
+  padding: 1.5rem 0;
+  position: relative;
+}
+
+.trust-marquee svg {
+  filter: grayscale(100%) opacity(60%);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.trust-marquee svg:hover {
+  filter: grayscale(0%) opacity(100%);
+  transform: scale(1.1);
 }
 
 .marquee-content {

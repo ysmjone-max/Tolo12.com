@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 import { 
-  Menu, 
+  Menu,
+  X,
   Settings,
   Activity, 
   CheckCircle2,
@@ -50,17 +51,17 @@ function App() {
   return (
     <>
       <nav>
-        <div className="container nav-container" style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+        <div className="container nav-container flex-between">
+          <div className="flex-gap-2">
             <button className="menu-toggle-btn" onClick={() => setMenuOpen(!menuOpen)}>
-              <Menu size={32} />
+              {menuOpen ? <X size={32} /> : <Menu size={32} />}
             </button>
-            <a href="#" className="logo">
-              <span style={{ display: 'flex', alignItems: 'center', whiteSpace: 'nowrap' }}>Tolo<span style={{ color: 'var(--color-accent-green)' }}>12</span></span>
+            <a href="#" className="logo flex-center">
+              <span>Tolo<span style={{ color: 'var(--color-accent-green)' }}>12</span></span>
             </a>
           </div>
 
-          <div className="nav-lang-switcher" style={{ display: 'flex', gap: '0.5rem' }}>
+          <div className="nav-lang-switcher flex-gap-1">
             <button 
               className={`lang-btn ${language === 'am' ? 'active' : ''}`}
               onClick={() => changeLanguage('am')}
@@ -80,7 +81,7 @@ function App() {
           </div>
           
           {menuOpen && (
-            <div className="dropdown-menu glass-panel" style={{ left: 0, right: 'auto', marginTop: '3.5rem' }}>
+            <div className="dropdown-menu glass-panel">
               <div className="dropdown-links">
                 <a href="#supply" onClick={() => setMenuOpen(false)}>{t.nav.supply}</a>
                 <a href="#how-it-works" onClick={() => setMenuOpen(false)}>{t.nav.works}</a>
@@ -154,7 +155,7 @@ function App() {
       </div>
 
       {/* What We Supply */}
-      <section id="supply" className="supply" style={{ paddingTop: '5rem' }}>
+      <section id="supply" className="supply">
         <div className="container">
           <Reveal>
             <h2 className="section-title">{t.supply.title}</h2>
@@ -162,7 +163,7 @@ function App() {
           </Reveal>
           
           <Reveal>
-            <div style={{ marginBottom: '3rem', width: '100%', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.5)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+            <div className="cover-image-wrapper">
               <img src={imgCover} alt="Tolo12 Categories Cover" style={{ width: '100%', display: 'block', objectFit: 'cover' }} />
             </div>
           </Reveal>

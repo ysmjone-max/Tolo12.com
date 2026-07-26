@@ -1,19 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Color Palette */
-  --color-primary-dark: #0A192F;
-  --color-primary-light: #112240;
-  --color-accent-green: #00D37F;
-  --color-accent-green-hover: #00E68A;
-  --color-text-main: #FFFFFF;
-  --color-text-muted: #8892B0;
-  --color-bg-light-gray: #F8F9FA;
-  --color-border: rgba(255, 255, 255, 0.1);
-  --color-glass: rgba(17, 34, 64, 0.7);
+  /* Premium Slate & Emerald Palette */
+  --color-primary-dark: #0f172a; /* Slate 900 */
+  --color-primary-light: #1e293b; /* Slate 800 */
+  --color-accent-green: #10B981; /* Emerald 500 */
+  --color-accent-green-hover: #34D399; /* Emerald 400 */
+  --color-text-main: #F8FAFC; /* Slate 50 */
+  --color-text-muted: #94A3B8; /* Slate 400 */
+  --color-bg-light-gray: #F1F5F9; /* Slate 100 */
+  --color-border: rgba(248, 250, 252, 0.08);
+  --color-glass: rgba(15, 23, 42, 0.7);
   
   /* Typography */
   --font-main: 'Inter', sans-serif;
+  
+  /* Fluid Spacing */
+  --space-section: clamp(4rem, 8vw, 7rem);
+  --space-container-padding: clamp(1rem, 4vw, 2rem);
   
   /* Transitions */
   --transition-fast: 0.2s ease-in-out;
@@ -96,9 +100,55 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 var(--space-container-padding);
+}
+
+/* Utility Classes */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-gap-1 { display: flex; gap: 1rem; align-items: center; }
+.flex-gap-2 { display: flex; gap: 1.5rem; align-items: center; }
+.flex-column { display: flex; flex-direction: column; }
+.w-full { width: 100%; }
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+
+.cover-image-wrapper {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  border: 1px solid var(--color-border);
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+/* Subtle glow behind the cover */
+.cover-image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 60%);
+  z-index: -1;
 }
 
 section {
