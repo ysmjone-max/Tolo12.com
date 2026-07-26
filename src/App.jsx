@@ -16,6 +16,9 @@ import { FaFacebook, FaInstagram, FaTiktok, FaTelegram, FaCar, FaWhatsapp } from
 import { SiToyota, SiHyundai, SiKia, SiVolkswagen, SiFord, SiBmw, SiSuzuki, SiCaterpillar } from "react-icons/si";
 import heroBg from './assets/hero-bg.png';
 import imgCover from './assets/tolo12_cover.png';
+import imgCatCar from './assets/cat-car.png';
+import imgCatMachine from './assets/cat-machine.png';
+import imgCatCosmetics from './assets/cat-cosmetics.png';
 import { useLanguage } from './LanguageContext';
 
 // Reusable Scroll Reveal Component
@@ -168,14 +171,22 @@ function App() {
           </Reveal>
 
           <div className="supply-grid-4">
-            {t.supply.categories.slice(0, 3).map((cat, index) => (
-              <Reveal key={index}>
-                <div className="supply-card glass-panel" style={{ padding: '2rem', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                  <h3 className="supply-title" style={{ fontSize: '1.4rem' }}>{cat.title}</h3>
-                  <p style={{ color: 'var(--color-text-muted)', marginTop: '0.75rem', lineHeight: 1.4 }}>{cat.desc}</p>
-                </div>
-              </Reveal>
-            ))}
+            {t.supply.categories.slice(0, 3).map((cat, index) => {
+              const catImages = [imgCatCar, imgCatMachine, imgCatCosmetics];
+              return (
+                <Reveal key={index}>
+                  <div className="supply-card glass-panel" style={{ padding: '0', height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+                    <div className="supply-card-img-wrapper" style={{ overflow: 'hidden', height: '220px', width: '100%' }}>
+                      <img src={catImages[index]} alt={cat.title} className="supply-card-img" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
+                    <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'center' }}>
+                      <h3 className="supply-title" style={{ fontSize: '1.4rem' }}>{cat.title}</h3>
+                      <p style={{ color: 'var(--color-text-muted)', marginTop: '0.75rem', lineHeight: 1.4 }}>{cat.desc}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
             
             {/* Custom Request Card */}
             <Reveal>
