@@ -105,7 +105,7 @@ function App() {
         <section className="hero" style={{ minHeight: '85vh' }}>
         <div className="container">
           <Reveal>
-            <div className="hero-content" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div className="hero-content" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '0 auto' }}>
               <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', maxWidth: '900px', lineHeight: 1.2 }}>
                 {t.hero.title1} <span className="text-gradient">{t.hero.title2}</span>
               </h1>
