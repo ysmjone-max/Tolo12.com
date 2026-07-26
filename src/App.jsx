@@ -2,41 +2,27 @@ import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 import { 
   Settings, 
-  Wrench, 
   Activity, 
   CheckCircle2,
-  ShieldCheck,
   MessageSquare,
   Mail,
   Phone,
-  ArrowRight
+  ArrowRight,
+  MoreVertical,
+  HelpCircle
 } from 'lucide-react';
-import { FaFacebook, FaInstagram, FaTiktok, FaTelegram, FaWhatsapp } from "react-icons/fa6";
-import { SiBosch, SiSiemens, SiCaterpillar, SiVolvo, SiSchneiderelectric } from "react-icons/si";
+import { FaFacebook, FaInstagram, FaTiktok, FaTelegram, FaCar } from "react-icons/fa6";
+import { SiToyota, SiHyundai, SiKia, SiVolkswagen, SiFord, SiBmw, SiSuzuki, SiCaterpillar } from "react-icons/si";
 import heroBg from './assets/hero-bg.png';
-import imgIndustrial from './assets/cat_industrial.png';
-import imgConstruction from './assets/cat_construction.png';
-import imgManufacturing from './assets/cat_manufacturing.png';
-import imgHydraulic from './assets/cat_hydraulic.png';
-import imgBearings from './assets/cat_bearings.png';
-import imgPumps from './assets/cat_pumps.png';
-import imgElectrical from './assets/cat_electrical.png';
-import imgAutomation from './assets/cat_automation.png';
-import imgMechanical from './assets/cat_mechanical.png';
-import imgHeavy from './assets/cat_heavy.png';
+import imgCarParts from './assets/cat-car.png';
+import imgCosmetics from './assets/cat-cosmetics.png';
+import imgMachineParts from './assets/cat-machine.png';
 import { useLanguage } from './LanguageContext';
 
 const supplyImages = [
-  imgIndustrial,
-  imgConstruction,
-  imgManufacturing,
-  imgHydraulic,
-  imgBearings,
-  imgPumps,
-  imgElectrical,
-  imgAutomation,
-  imgMechanical,
-  imgHeavy
+  imgCarParts,
+  imgCosmetics,
+  imgMachineParts
 ];
 
 // Reusable Scroll Reveal Component
@@ -67,19 +53,46 @@ const Reveal = ({ children }) => {
 
 function App() {
   const { language, changeLanguage, t } = useLanguage();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <>
       <nav>
-        <div className="container nav-container">
+        <div className="container nav-container" style={{ position: 'relative' }}>
           <a href="#" className="logo">
             <Settings size={28} className="supply-icon" style={{ margin: 0 }}/>
             <span style={{ display: 'flex', alignItems: 'center', whiteSpace: 'nowrap' }}>Tolo<span style={{ color: 'var(--color-accent-green)' }}>12</span></span>
           </a>
           
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-            <a href="#contact" className="btn-primary">{t.nav.contact}</a>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <button className="menu-toggle-btn" onClick={() => setMenuOpen(!menuOpen)}>
+              <MoreVertical size={28} />
+            </button>
           </div>
+          
+          {menuOpen && (
+            <div className="dropdown-menu glass-panel">
+              <div className="dropdown-lang">
+                <button 
+                  className={`lang-btn ${language === 'am' ? 'active' : ''}`}
+                  onClick={() => changeLanguage('am')}
+                >
+                  🇪🇹 አማርኛ
+                </button>
+                <button 
+                  className={`lang-btn ${language === 'en' ? 'active' : ''}`}
+                  onClick={() => changeLanguage('en')}
+                >
+                  Eng English
+                </button>
+              </div>
+              <div className="dropdown-links">
+                <a href="#supply" onClick={() => setMenuOpen(false)}>{t.nav.supply}</a>
+                <a href="#how-it-works" onClick={() => setMenuOpen(false)}>{t.nav.works}</a>
+                <a href="#contact" onClick={() => setMenuOpen(false)}>{t.nav.contact}</a>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
@@ -93,16 +106,21 @@ function App() {
               <h1 className="hero-title">
                 {t.hero.title1} <span className="text-gradient">{t.hero.title2}</span>
               </h1>
-              <p className="hero-subtitle">
+              <p className="hero-subtitle" style={{ maxWidth: '700px', margin: '0 auto 2.5rem' }}>
                 {t.hero.subtitle}
               </p>
-              <div className="hero-buttons">
-                <a href="#contact" className="btn-primary">
+              
+              <div className="hero-buttons" style={{ flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
+                <a href="#contact" className="btn-primary" style={{ padding: '1rem 3rem', fontSize: '1.25rem' }}>
                   {t.hero.btnQuote} <ArrowRight size={20} />
                 </a>
-                <a href="https://wa.me/393514604320" target="_blank" rel="noopener noreferrer" className="btn-outline">
-                  {t.hero.btnWhatsapp}
-                </a>
+                
+                <div className="hero-social-links" style={{ display: 'flex', gap: '1.5rem', marginTop: '1rem' }}>
+                   <a href="https://wa.me/393514604320" target="_blank" rel="noopener noreferrer" className="social-link" title="WhatsApp"><FaWhatsapp size={28} /></a>
+                   <a href="#" className="social-link" title="Telegram"><FaTelegram size={28} /></a>
+                   <a href="https://www.instagram.com/tologhebeya/" target="_blank" rel="noopener noreferrer" className="social-link" title="Instagram"><FaInstagram size={28} /></a>
+                   <a href="https://www.tiktok.com/@tologhebeya?_r=1&_t=ZN-97rv7b5LiKp" target="_blank" rel="noopener noreferrer" className="social-link" title="TikTok"><FaTiktok size={28} /></a>
+                </div>
               </div>
             </div>
           </Reveal>
@@ -116,74 +134,58 @@ function App() {
         </div>
       </section>
 
-      {/* Trust Marquee */}
+      {/* Automotive Brand Marquee */}
       <div className="trust-marquee">
         <div className="marquee-content" style={{ display: 'flex', alignItems: 'center', gap: '4rem' }}>
-          <SiBosch size={45} color="#ED0007" />
-          <span style={{ fontWeight: 900, fontStyle: 'italic', color: '#0055A5', fontSize: '2.5rem', lineHeight: 1 }}>SKF</span>
-          <SiSiemens size={45} color="#009999" />
-          <SiCaterpillar size={45} color="#FFB81C" />
-          <SiVolvo size={45} color="#1F2A44" />
-          <span style={{ fontWeight: 900, color: '#0070B8', fontSize: '2.2rem', lineHeight: 1 }}>FESTO</span>
-          <SiSchneiderelectric size={45} color="#3DCD58" />
-          <span style={{ fontWeight: 900, color: '#E47100', fontSize: '2.2rem', lineHeight: 1 }}>TIMKEN</span>
+          <SiToyota size={50} color="#EB0A1E" />
+          <SiHyundai size={50} color="#002C5F" />
+          <SiKia size={50} color="#05141F" />
+          <SiVolkswagen size={50} color="#001E50" />
+          <SiFord size={50} color="#003478" />
+          <SiBmw size={50} color="#0066B1" />
+          <SiSuzuki size={50} color="#E32028" />
+          <SiCaterpillar size={50} color="#FFB81C" />
           
           {/* Duplicate for infinite loop effect */}
-          <SiBosch size={45} color="#ED0007" />
-          <span style={{ fontWeight: 900, fontStyle: 'italic', color: '#0055A5', fontSize: '2.5rem', lineHeight: 1 }}>SKF</span>
-          <SiSiemens size={45} color="#009999" />
-          <SiCaterpillar size={45} color="#FFB81C" />
-          <SiVolvo size={45} color="#1F2A44" />
-          <span style={{ fontWeight: 900, color: '#0070B8', fontSize: '2.2rem', lineHeight: 1 }}>FESTO</span>
-          <SiSchneiderelectric size={45} color="#3DCD58" />
-          <span style={{ fontWeight: 900, color: '#E47100', fontSize: '2.2rem', lineHeight: 1 }}>TIMKEN</span>
+          <SiToyota size={50} color="#EB0A1E" />
+          <SiHyundai size={50} color="#002C5F" />
+          <SiKia size={50} color="#05141F" />
+          <SiVolkswagen size={50} color="#001E50" />
+          <SiFord size={50} color="#003478" />
+          <SiBmw size={50} color="#0066B1" />
+          <SiSuzuki size={50} color="#E32028" />
+          <SiCaterpillar size={50} color="#FFB81C" />
         </div>
       </div>
 
-      {/* Introduction Section */}
-      <section className="intro">
-        <div className="container">
-          <Reveal>
-            <div className="intro-content">
-              <h2 className="section-title">{t.intro.title}</h2>
-              <p className="intro-text">
-                {t.intro.p1_1}
-              </p>
-              <p className="intro-text" style={{ textAlign: 'center', color: 'var(--color-accent-green)', fontWeight: 'bold', fontSize: '1.5rem', marginTop: '1rem', marginBottom: '2rem' }}>
-                {t.intro.p1_2}
-              </p>
-              <p className="intro-text">
-                {t.intro.p2}
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       {/* What We Supply */}
-      <section className="supply">
+      <section id="supply" className="supply" style={{ paddingTop: '5rem' }}>
         <div className="container">
           <Reveal>
             <h2 className="section-title">{t.supply.title}</h2>
             <p className="section-subtitle">{t.supply.subtitle}</p>
           </Reveal>
           
-          <div className="supply-grid">
-            {t.supply.items.map((item, index) => (
+          <div className="supply-grid-4">
+            {t.supply.categories.slice(0, 3).map((cat, index) => (
               <Reveal key={index}>
-                <div className="supply-card glass-panel" style={{ padding: 0, overflow: 'hidden', height: '100%' }}>
-                  <img src={supplyImages[index]} alt={item} style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
-                  <div style={{ padding: '1.5rem' }}>
-                    <h3 className="supply-title">{item}</h3>
+                <div className="supply-card glass-panel" style={{ padding: 0, overflow: 'hidden', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                  <img src={supplyImages[index]} alt={cat.title} style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
+                  <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                    <h3 className="supply-title" style={{ fontSize: '1.4rem' }}>{cat.title}</h3>
+                    <p style={{ color: 'var(--color-text-muted)', marginTop: '0.5rem', lineHeight: 1.4 }}>{cat.desc}</p>
                   </div>
                 </div>
               </Reveal>
             ))}
+            
+            {/* Custom Request Card */}
             <Reveal>
-              <div className="supply-card glass-panel" style={{ padding: '2rem', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderColor: 'var(--color-accent-green)'}}>
-                <Activity size={40} className="supply-icon" />
-                <h3 className="supply-title">{t.supply.customTitle}</h3>
-                <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', marginTop: '0.5rem' }}>{t.supply.customText}</p>
+              <div className="supply-card glass-panel" style={{ padding: '2rem', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderColor: 'var(--color-accent-green)', textAlign: 'center'}}>
+                <HelpCircle size={50} className="supply-icon" style={{ marginBottom: '1rem' }} />
+                <h3 className="supply-title" style={{ fontSize: '1.4rem' }}>{t.supply.categories[3].title}</h3>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem', marginTop: '0.75rem', lineHeight: 1.4 }}>{t.supply.categories[3].desc}</p>
+                <a href="#contact" className="btn-outline" style={{ marginTop: '1.5rem' }}>{t.nav.contact}</a>
               </div>
             </Reveal>
           </div>
@@ -191,77 +193,26 @@ function App() {
       </section>
 
       {/* How It Works */}
-      <section className="works bg-darker">
+      <section id="how-it-works" className="works bg-darker">
         <div className="container">
           <Reveal>
             <h2 className="section-title">{t.works.title}</h2>
             <p className="section-subtitle">{t.works.subtitle}</p>
           </Reveal>
           
-          <div className="steps-container">
+          <div className="steps-container" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
             {t.works.steps.map((step, index) => (
               <Reveal key={index}>
-                <div className="step-card glass-panel" style={index === 3 ? { borderColor: 'var(--color-accent-green)'} : {}}>
+                <div className="step-card glass-panel">
                   <span className="step-number">0{index + 1}</span>
                   <div className="step-content">
-                    <h3>{step.title}</h3>
-                    <p>{step.desc}</p>
+                    <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem' }}>{step.title}</h3>
+                    <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.5 }}>{step.desc}</p>
                   </div>
                 </div>
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us & Who We Serve */}
-      <section className="features">
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem' }}>
-          
-          <Reveal>
-            <h2 className="section-title" style={{ textAlign: 'left' }}>{t.features.title}</h2>
-            <div className="features-grid">
-              {t.features.items.map((feature, idx) => (
-                <div key={idx} className="feature-item">
-                  <CheckCircle2 size={24} className="feature-icon" />
-                  <span>{feature}</span>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-
-          <Reveal>
-            <h2 className="section-title" style={{ textAlign: 'left' }}>{t.industries.title}</h2>
-            <div className="industries-grid">
-              {t.industries.items.map((industry, idx) => (
-                <div key={idx} className="industry-tag">
-                  {industry}
-                </div>
-              ))}
-            </div>
-          </Reveal>
-
-        </div>
-      </section>
-
-      {/* Our Promise */}
-      <section className="promise">
-        <div className="container">
-          <Reveal>
-            <div className="promise-content">
-              <ShieldCheck size={48} className="supply-icon" style={{ marginBottom: '1.5rem' }} />
-              <h2 className="section-title">{t.promise.title}</h2>
-              <p className="promise-text">
-                {t.promise.quote}
-              </p>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem', marginBottom: '1.5rem' }}>
-                {t.promise.mission}
-              </p>
-              <p style={{ color: 'var(--color-accent-green)', fontWeight: '600', fontSize: '1.25rem' }}>
-                {t.promise.highlight}
-              </p>
-            </div>
-          </Reveal>
         </div>
       </section>
 
@@ -326,42 +277,25 @@ function App() {
                 <Settings size={24} className="supply-icon" style={{ margin: 0 }}/>
                 <span style={{ display: 'flex', alignItems: 'center', whiteSpace: 'nowrap' }}>Tolo<span style={{ color: 'var(--color-accent-green)' }}>12</span></span>
               </a>
-              <p>{t.footer.desc}</p>
             </div>
             
             <div className="footer-col">
-              <h4>{t.footer.quickLinks}</h4>
-              <p><a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>{t.footer.home}</a></p>
-              <p><a href="#contact" style={{ color: 'inherit', textDecoration: 'none' }}>{t.footer.contact}</a></p>
-              <p><a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>{t.footer.privacy}</a></p>
+              <h4>{t.footer?.quickLinks || 'Quick Links'}</h4>
+              <p><a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>Home</a></p>
+              <p><a href="#supply" style={{ color: 'inherit', textDecoration: 'none' }}>What We Supply</a></p>
+              <p><a href="#how-it-works" style={{ color: 'inherit', textDecoration: 'none' }}>How It Works</a></p>
             </div>
             
             <div className="footer-col">
-              <h4>{t.footer.contact}</h4>
-              <p>{t.footer.phoneText}</p>
+              <h4>{t.nav.contact}</h4>
+              <p>+39 351 460 4320</p>
               <p>tologhebeya@gmail.com</p>
             </div>
           </div>
           
           <div className="footer-bottom" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
-            <div className="lang-switcher" style={{ display: 'flex', justifyContent: 'center' }}>
-              <button 
-                className={`lang-btn ${language === 'am' ? 'active' : ''}`}
-                onClick={() => changeLanguage('am')}
-                style={{ minWidth: '120px' }}
-              >
-                🇪🇹 አማርኛ
-              </button>
-              <button 
-                className={`lang-btn ${language === 'en' ? 'active' : ''}`}
-                onClick={() => changeLanguage('en')}
-                style={{ minWidth: '120px' }}
-              >
-                Eng English
-              </button>
-            </div>
             <div style={{ opacity: 0.8 }}>
-              &copy; {new Date().getFullYear()} {t.footer.rights}
+              &copy; {new Date().getFullYear()} Tolo12. All rights reserved.
             </div>
           </div>
         </div>
