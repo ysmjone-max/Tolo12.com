@@ -117,7 +117,7 @@ function App() {
                 
                 <div className="hero-social-links" style={{ display: 'flex', gap: '1.5rem', marginTop: '1rem' }}>
                    <a href="https://wa.me/393514604320" target="_blank" rel="noopener noreferrer" className="social-link" title="WhatsApp"><FaWhatsapp size={28} /></a>
-                   <a href="#" className="social-link" title="Telegram"><FaTelegram size={28} /></a>
+                   <a href="https://t.me/+393514604320" target="_blank" rel="noopener noreferrer" className="social-link" title="Telegram"><FaTelegram size={28} /></a>
                    <a href="https://www.instagram.com/tologhebeya/" target="_blank" rel="noopener noreferrer" className="social-link" title="Instagram"><FaInstagram size={28} /></a>
                    <a href="https://www.tiktok.com/@tologhebeya?_r=1&_t=ZN-97rv7b5LiKp" target="_blank" rel="noopener noreferrer" className="social-link" title="TikTok"><FaTiktok size={28} /></a>
                 </div>
@@ -259,7 +259,7 @@ function App() {
                   <a href="https://www.facebook.com/profile.php?id=61591924945173" target="_blank" rel="noopener noreferrer" className="social-link"><FaFacebook size={28} /></a>
                   <a href="https://www.instagram.com/tologhebeya/" target="_blank" rel="noopener noreferrer" className="social-link"><FaInstagram size={28} /></a>
                   <a href="https://www.tiktok.com/@tologhebeya?_r=1&_t=ZN-97rv7b5LiKp" target="_blank" rel="noopener noreferrer" className="social-link"><FaTiktok size={28} /></a>
-                  <a href="#" className="social-link"><FaTelegram size={28} /></a>
+                  <a href="https://t.me/+393514604320" target="_blank" rel="noopener noreferrer" className="social-link"><FaTelegram size={28} /></a>
                 </div>
               </div>
             </Reveal>
