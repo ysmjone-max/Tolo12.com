@@ -1,29 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 import { 
-  Settings, 
+  Menu, 
   Activity, 
   CheckCircle2,
   MessageSquare,
   Mail,
   Phone,
   ArrowRight,
-  MoreVertical,
   HelpCircle
 } from 'lucide-react';
 import { FaFacebook, FaInstagram, FaTiktok, FaTelegram, FaCar, FaWhatsapp } from "react-icons/fa6";
 import { SiToyota, SiHyundai, SiKia, SiVolkswagen, SiFord, SiBmw, SiSuzuki, SiCaterpillar } from "react-icons/si";
 import heroBg from './assets/hero-bg.png';
-import imgCarParts from './assets/cat-car.png';
-import imgCosmetics from './assets/cat-cosmetics.png';
-import imgMachineParts from './assets/cat-machine.png';
+import imgCover from './assets/tolo12_cover.png';
 import { useLanguage } from './LanguageContext';
-
-const supplyImages = [
-  imgCarParts,
-  imgCosmetics,
-  imgMachineParts
-];
 
 // Reusable Scroll Reveal Component
 const Reveal = ({ children }) => {
@@ -58,20 +49,16 @@ function App() {
   return (
     <>
       <nav>
-        <div className="container nav-container" style={{ position: 'relative' }}>
+        <div className="container nav-container" style={{ position: 'relative', justifyContent: 'flex-start', gap: '1.5rem' }}>
+          <button className="menu-toggle-btn" onClick={() => setMenuOpen(!menuOpen)}>
+            <Menu size={32} />
+          </button>
           <a href="#" className="logo">
-            <Settings size={28} className="supply-icon" style={{ margin: 0 }}/>
             <span style={{ display: 'flex', alignItems: 'center', whiteSpace: 'nowrap' }}>Tolo<span style={{ color: 'var(--color-accent-green)' }}>12</span></span>
           </a>
           
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <button className="menu-toggle-btn" onClick={() => setMenuOpen(!menuOpen)}>
-              <MoreVertical size={28} />
-            </button>
-          </div>
-          
           {menuOpen && (
-            <div className="dropdown-menu glass-panel">
+            <div className="dropdown-menu glass-panel" style={{ left: 0, right: 'auto', marginTop: '3.5rem' }}>
               <div className="dropdown-lang">
                 <button 
                   className={`lang-btn ${language === 'am' ? 'active' : ''}`}
@@ -135,7 +122,7 @@ function App() {
       </section>
 
       {/* Automotive Brand Marquee */}
-      <div className="trust-marquee">
+      <div className="trust-marquee" style={{ backgroundColor: '#ffffff', padding: '1.5rem 0' }}>
         <div className="marquee-content" style={{ display: 'flex', alignItems: 'center', gap: '4rem' }}>
           <SiToyota size={50} color="#EB0A1E" />
           <SiHyundai size={50} color="#002C5F" />
@@ -166,15 +153,18 @@ function App() {
             <p className="section-subtitle">{t.supply.subtitle}</p>
           </Reveal>
           
+          <Reveal>
+            <div style={{ marginBottom: '3rem', width: '100%', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.5)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+              <img src={imgCover} alt="Tolo12 Categories Cover" style={{ width: '100%', display: 'block', objectFit: 'cover' }} />
+            </div>
+          </Reveal>
+
           <div className="supply-grid-4">
             {t.supply.categories.slice(0, 3).map((cat, index) => (
               <Reveal key={index}>
-                <div className="supply-card glass-panel" style={{ padding: 0, overflow: 'hidden', height: '100%', display: 'flex', flexDirection: 'column' }}>
-                  <img src={supplyImages[index]} alt={cat.title} style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
-                  <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                    <h3 className="supply-title" style={{ fontSize: '1.4rem' }}>{cat.title}</h3>
-                    <p style={{ color: 'var(--color-text-muted)', marginTop: '0.5rem', lineHeight: 1.4 }}>{cat.desc}</p>
-                  </div>
+                <div className="supply-card glass-panel" style={{ padding: '2rem', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <h3 className="supply-title" style={{ fontSize: '1.4rem' }}>{cat.title}</h3>
+                  <p style={{ color: 'var(--color-text-muted)', marginTop: '0.75rem', lineHeight: 1.4 }}>{cat.desc}</p>
                 </div>
               </Reveal>
             ))}
