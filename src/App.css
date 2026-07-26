@@ -92,7 +92,7 @@ section {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: var(--space-section);
+  padding-top: calc(var(--space-section) + 80px);
   overflow: hidden;
 }
 
