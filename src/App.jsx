@@ -11,7 +11,7 @@ import {
   MoreVertical,
   HelpCircle
 } from 'lucide-react';
-import { FaFacebook, FaInstagram, FaTiktok, FaTelegram, FaCar } from "react-icons/fa6";
+import { FaFacebook, FaInstagram, FaTiktok, FaTelegram, FaCar, FaWhatsapp } from "react-icons/fa6";
 import { SiToyota, SiHyundai, SiKia, SiVolkswagen, SiFord, SiBmw, SiSuzuki, SiCaterpillar } from "react-icons/si";
 import heroBg from './assets/hero-bg.png';
 import imgCarParts from './assets/cat-car.png';
