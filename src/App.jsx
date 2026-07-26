@@ -50,6 +50,7 @@ const Reveal = ({ children }) => {
 function App() {
   const { language, changeLanguage, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState(null);
 
   return (
     <>
@@ -104,15 +105,12 @@ function App() {
         <section className="hero" style={{ minHeight: '85vh' }}>
         <div className="container">
           <Reveal>
-            <div className="hero-content">
-              <h1 className="hero-title">
+            <div className="hero-content" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', maxWidth: '900px', lineHeight: 1.2 }}>
                 {t.hero.title1} <span className="text-gradient">{t.hero.title2}</span>
               </h1>
-              <p className="hero-subtitle" style={{ maxWidth: '700px', margin: '0 auto 2.5rem' }}>
-                {t.hero.subtitle}
-              </p>
               
-              <div className="hero-buttons" style={{ flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
+              <div className="hero-buttons" style={{ flexDirection: 'column', alignItems: 'center', gap: '1.5rem', marginTop: '3rem' }}>
                 <a href="#contact" className="btn-primary" style={{ padding: '1rem 3rem', fontSize: '1.25rem' }}>
                   {t.hero.btnQuote} <ArrowRight size={20} />
                 </a>
@@ -172,11 +170,15 @@ function App() {
 
           <div className="supply-grid-4">
             {t.supply.categories.slice(0, 3).map((cat, index) => {
-              const catImages = [imgCatCar, imgCatMachine, imgCatCosmetics];
+              const catImages = [imgCatCar, imgCatCosmetics, imgCatMachine];
               return (
                 <Reveal key={index}>
                   <div className="supply-card glass-panel" style={{ padding: '0', height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-                    <div className="supply-card-img-wrapper" style={{ overflow: 'hidden', height: '220px', width: '100%' }}>
+                    <div 
+                      className="supply-card-img-wrapper" 
+                      style={{ overflow: 'hidden', height: '220px', width: '100%', cursor: 'zoom-in' }}
+                      onClick={() => setLightboxImage(catImages[index])}
+                    >
                       <img src={catImages[index]} alt={cat.title} className="supply-card-img" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
                     <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'center' }}>
@@ -314,6 +316,16 @@ function App() {
       <a href="https://wa.me/393514604320" target="_blank" rel="noopener noreferrer" className="fab-whatsapp" aria-label="Chat on WhatsApp">
         <FaWhatsapp size={32} />
       </a>
+
+      {/* Lightbox Modal */}
+      {lightboxImage && (
+        <div className="lightbox-overlay" onClick={() => setLightboxImage(null)}>
+          <div className="lightbox-content" onClick={e => e.stopPropagation()}>
+            <button className="lightbox-close" onClick={() => setLightboxImage(null)}><X size={32} /></button>
+            <img src={lightboxImage} alt="Magnified Category View" />
+          </div>
+        </div>
+      )}
     </>
   );
 }

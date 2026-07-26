@@ -38,7 +38,7 @@ section {
   transform: scale(1.1);
 }
 
-/* Full Screen Mobile Menu */
+/* Mobile Menu Dropdown */
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -51,31 +51,7 @@ section {
   box-shadow: 0 15px 35px rgba(0,0,0,0.5);
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: var(--color-primary-dark);
-}
-
-@media (max-width: 768px) {
-  .dropdown-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    border-radius: 0;
-    margin-top: 0 !important;
-    padding: 6rem 2rem 2rem;
-    z-index: 99;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .dropdown-links {
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .dropdown-links a {
-    font-size: 1.5rem;
-  }
+  z-index: 100;
 }
 
 .dropdown-links {
@@ -620,4 +596,58 @@ footer {
     width: 50px;
     height: 50px;
   }
+}
+
+/* Lightbox Modal */
+.lightbox-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: zoom-out;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  animation: zoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -50px; right: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
