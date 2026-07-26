@@ -49,30 +49,37 @@ function App() {
   return (
     <>
       <nav>
-        <div className="container nav-container" style={{ position: 'relative', justifyContent: 'flex-start', gap: '1.5rem' }}>
-          <button className="menu-toggle-btn" onClick={() => setMenuOpen(!menuOpen)}>
-            <Menu size={32} />
-          </button>
-          <a href="#" className="logo">
-            <span style={{ display: 'flex', alignItems: 'center', whiteSpace: 'nowrap' }}>Tolo<span style={{ color: 'var(--color-accent-green)' }}>12</span></span>
-          </a>
+        <div className="container nav-container" style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+            <button className="menu-toggle-btn" onClick={() => setMenuOpen(!menuOpen)}>
+              <Menu size={32} />
+            </button>
+            <a href="#" className="logo">
+              <span style={{ display: 'flex', alignItems: 'center', whiteSpace: 'nowrap' }}>Tolo<span style={{ color: 'var(--color-accent-green)' }}>12</span></span>
+            </a>
+          </div>
+
+          <div className="nav-lang-switcher" style={{ display: 'flex', gap: '0.5rem' }}>
+            <button 
+              className={`lang-btn ${language === 'am' ? 'active' : ''}`}
+              onClick={() => changeLanguage('am')}
+              title="አማርኛ"
+              style={{ minWidth: 'auto', padding: '0.4rem 0.8rem', fontSize: '1.2rem' }}
+            >
+              🇪🇹
+            </button>
+            <button 
+              className={`lang-btn ${language === 'en' ? 'active' : ''}`}
+              onClick={() => changeLanguage('en')}
+              title="English"
+              style={{ minWidth: 'auto', padding: '0.4rem 0.8rem', fontSize: '1.2rem' }}
+            >
+              🇬🇧
+            </button>
+          </div>
           
           {menuOpen && (
             <div className="dropdown-menu glass-panel" style={{ left: 0, right: 'auto', marginTop: '3.5rem' }}>
-              <div className="dropdown-lang">
-                <button 
-                  className={`lang-btn ${language === 'am' ? 'active' : ''}`}
-                  onClick={() => changeLanguage('am')}
-                >
-                  🇪🇹 አማርኛ
-                </button>
-                <button 
-                  className={`lang-btn ${language === 'en' ? 'active' : ''}`}
-                  onClick={() => changeLanguage('en')}
-                >
-                  Eng English
-                </button>
-              </div>
               <div className="dropdown-links">
                 <a href="#supply" onClick={() => setMenuOpen(false)}>{t.nav.supply}</a>
                 <a href="#how-it-works" onClick={() => setMenuOpen(false)}>{t.nav.works}</a>
