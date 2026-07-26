@@ -92,10 +92,13 @@ function App() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="hero">
+      {/* Unified Background Wrapper for Hero and Marquee */}
+      <div className="unified-bg-wrapper" style={{ position: 'relative', overflow: 'hidden' }}>
         <img src={heroBg} alt="Industrial Warehouse" className="hero-bg" />
         <div className="hero-overlay"></div>
+
+        {/* Hero Section */}
+        <section className="hero" style={{ minHeight: '85vh' }}>
         <div className="container">
           <Reveal>
             <div className="hero-content">
@@ -122,16 +125,10 @@ function App() {
           </Reveal>
         </div>
 
-        {/* Wave Divider */}
-        <div className="custom-shape-divider-bottom">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="shape-fill"></path>
-            </svg>
-        </div>
-      </section>
+        </section>
 
-      {/* Automotive Brand Marquee */}
-      <div className="trust-marquee">
+        {/* Automotive Brand Marquee */}
+        <div className="trust-marquee ribbon-bg">
         <div className="marquee-content">
           {[...Array(3)].map((_, i) => (
             <div key={i} className="marquee-set">
@@ -145,6 +142,14 @@ function App() {
               <div className="logo-3d-wrapper"><SiCaterpillar size={90} color="#FFB81C" /></div>
             </div>
           ))}
+        </div>
+        </div>
+        
+        {/* Wave Divider */}
+        <div className="custom-shape-divider-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="shape-fill"></path>
+            </svg>
         </div>
       </div>
 
