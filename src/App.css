@@ -186,14 +186,6 @@ section {
   border-color: var(--color-accent-green);
 }
 
-.supply-card-img {
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.supply-card:hover .supply-card-img {
-  transform: scale(1.15);
-}
-
 .supply-icon {
   color: var(--color-accent-green);
   margin-bottom: 1rem;

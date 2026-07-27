@@ -47,6 +47,47 @@ const Reveal = ({ children }) => {
   );
 };
 
+// Image Magnifying Glass Component
+const InnerZoom = ({ src, alt, onClick }) => {
+  const [zoomStyle, setZoomStyle] = useState({ transformOrigin: 'center center', transform: 'scale(1)' });
+
+  const handleMouseMove = (e) => {
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+    setZoomStyle({
+      transformOrigin: `${x}% ${y}%`,
+      transform: 'scale(2.5)'
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setZoomStyle({ transformOrigin: 'center center', transform: 'scale(1)' });
+  };
+
+  return (
+    <div 
+      className="inner-zoom-container"
+      style={{ overflow: 'hidden', width: '100%', height: '100%', cursor: 'zoom-in' }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onClick={onClick}
+    >
+      <img 
+        src={src} 
+        alt={alt} 
+        style={{ 
+          width: '100%', 
+          height: '100%', 
+          objectFit: 'cover', 
+          transition: 'transform 0.1s ease-out', 
+          ...zoomStyle 
+        }} 
+      />
+    </div>
+  );
+};
+
 function App() {
   const { language, changeLanguage, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -161,12 +202,6 @@ function App() {
             <h2 className="section-title">{t.supply.title}</h2>
             <p className="section-subtitle">{t.supply.subtitle}</p>
           </Reveal>
-          
-          <Reveal>
-            <div className="cover-image-wrapper">
-              <img src={imgCover} alt="Tolo12 Categories Cover" style={{ width: '100%', display: 'block', objectFit: 'cover' }} />
-            </div>
-          </Reveal>
 
           <div className="supply-grid-4">
             {t.supply.categories.slice(0, 3).map((cat, index) => {
@@ -174,12 +209,12 @@ function App() {
               return (
                 <Reveal key={index}>
                   <div className="supply-card glass-panel" style={{ padding: '0', height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-                    <div 
-                      className="supply-card-img-wrapper" 
-                      style={{ overflow: 'hidden', height: '220px', width: '100%', cursor: 'zoom-in' }}
-                      onClick={() => setLightboxImage(catImages[index])}
-                    >
-                      <img src={catImages[index]} alt={cat.title} className="supply-card-img" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <div className="supply-card-img-wrapper" style={{ height: '220px', width: '100%' }}>
+                      <InnerZoom 
+                        src={catImages[index]} 
+                        alt={cat.title} 
+                        onClick={() => setLightboxImage(catImages[index])} 
+                      />
                     </div>
                     <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'center' }}>
                       <h3 className="supply-title" style={{ fontSize: '1.4rem' }}>{cat.title}</h3>
