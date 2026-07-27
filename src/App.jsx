@@ -297,7 +297,7 @@ function App() {
                 
                 <ul className="contact-list">
                   <li><Phone size={24} className="contact-list-icon" /> +39 351 460 4320</li>
-                  <li><Mail size={24} className="contact-list-icon" /> tologhebeya@gmail.com</li>
+                  <li><Mail size={24} className="contact-list-icon" /> info@tolo12.com</li>
                 </ul>
 
                 <h4 style={{ marginTop: '2rem', marginBottom: '1rem' }}>{t.contact.social}</h4>
@@ -335,7 +335,7 @@ function App() {
             <div className="footer-col">
               <h4>{t.nav.contact}</h4>
               <p>+39 351 460 4320</p>
-              <p>tologhebeya@gmail.com</p>
+              <p>info@tolo12.com</p>
             </div>
           </div>
           
