@@ -60,6 +60,34 @@ const Reveal = ({ children }) => {
   );
 };
 
+// Cosmetic Text Logos Component
+const CosmeticLogo = ({ name, type }) => {
+  const styles = {
+    chanel: { fontFamily: '"Montserrat", "Helvetica Neue", sans-serif', letterSpacing: '0.3em', fontWeight: 600, fontSize: '2rem' },
+    dior: { fontFamily: '"Playfair Display", "Times New Roman", serif', letterSpacing: '0.1em', fontWeight: 700, fontSize: '2.5rem' },
+    loreal: { fontFamily: '"Arial", sans-serif', letterSpacing: '0.15em', fontWeight: 600, fontSize: '2.2rem' },
+    mac: { fontFamily: '"Arial Black", sans-serif', letterSpacing: '-0.05em', fontWeight: 900, fontSize: '2.5rem' },
+    clinique: { fontFamily: '"Times New Roman", serif', letterSpacing: '0.15em', fontWeight: 500, fontSize: '2.2rem' },
+    estee: { fontFamily: '"Optima", "Segoe UI", sans-serif', letterSpacing: '0.2em', fontWeight: 400, fontSize: '1.2rem', textAlign: 'center', lineHeight: 1.2 }
+  };
+  
+  return (
+    <div className="logo-3d-wrapper" style={{ 
+      color: '#ffffff', 
+      filter: 'drop-shadow(0px 8px 12px rgba(255,255,255,0.3))',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '0 2.5rem',
+      userSelect: 'none'
+    }}>
+      <span style={styles[type]}>
+        {name === 'ESTEE' ? <><span style={{display: 'block'}}>ESTÉE</span><span style={{display: 'block'}}>LAUDER</span></> : name}
+      </span>
+    </div>
+  );
+};
+
 // Image Magnifying Glass Component with Carousel
 const InnerZoom = ({ images, alt, onClick }) => {
   const [zoomStyle, setZoomStyle] = useState({ transformOrigin: 'center center', transform: 'scale(1)' });
@@ -207,14 +235,14 @@ function App() {
 
         </section>
 
-        {/* Automotive Brand Marquee */}
+        {/* Automotive & Machinery Brand Marquee */}
         <div className="trust-marquee ribbon-bg">
           <div className="marquee-content">
             {[...Array(3)].map((_, i) => (
               <div key={i} className="marquee-set">
                 <div className="logo-3d-wrapper"><SiToyota size={90} color="#EB0A1E" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
                 <div className="logo-3d-wrapper"><SiHyundai size={90} color="#002C5F" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
-                <div className="logo-3d-wrapper"><SiKia size={90} color="#05141F" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiCaterpillar size={90} color="#FFB81C" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
                 <div className="logo-3d-wrapper"><SiVolkswagen size={90} color="#001E50" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
                 <div className="logo-3d-wrapper"><SiFord size={90} color="#003478" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
                 <div className="logo-3d-wrapper"><SiBmw size={90} color="#0066B1" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
@@ -223,17 +251,17 @@ function App() {
           </div>
         </div>
 
-        {/* Machinery Brand Marquee (Reverse) */}
+        {/* Cosmetics Brand Marquee (Reverse) */}
         <div className="trust-marquee ribbon-bg" style={{ paddingBottom: '3rem', paddingTop: '1rem' }}>
           <div className="marquee-content" style={{ animationDirection: 'reverse' }}>
             {[...Array(3)].map((_, i) => (
               <div key={i} className="marquee-set">
-                <div className="logo-3d-wrapper"><SiCaterpillar size={90} color="#FFB81C" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
-                <div className="logo-3d-wrapper"><SiSuzuki size={90} color="#E32028" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
-                <div className="logo-3d-wrapper"><SiBmw size={90} color="#0066B1" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
-                <div className="logo-3d-wrapper"><SiFord size={90} color="#003478" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
-                <div className="logo-3d-wrapper"><SiHyundai size={90} color="#002C5F" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
-                <div className="logo-3d-wrapper"><SiToyota size={90} color="#EB0A1E" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <CosmeticLogo name="CHANEL" type="chanel" />
+                <CosmeticLogo name="L'ORÉAL" type="loreal" />
+                <CosmeticLogo name="DIOR" type="dior" />
+                <CosmeticLogo name="M·A·C" type="mac" />
+                <CosmeticLogo name="CLINIQUE" type="clinique" />
+                <CosmeticLogo name="ESTEE" type="estee" />
               </div>
             ))}
           </div>
