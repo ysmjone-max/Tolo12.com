@@ -57,6 +57,25 @@ export const translations = {
       getInTouch: "Get in Touch",
       getInTouchDesc: "We are available to answer your questions and help you find exactly what you need.",
       social: "Follow Us"
+    },
+    featured: {
+      title: "Featured Imports",
+      subtitle: "A glimpse of the high-quality products we regularly source and deliver to our clients.",
+      items: [
+        { name: "Bosch Alternator", category: "Automotive" },
+        { name: "L'Oréal Skincare Bundle", category: "Cosmetics" },
+        { name: "CAT Hydraulic Pump", category: "Machinery" },
+        { name: "Custom Luxury Orders", category: "Special Request" }
+      ]
+    },
+    testimonials: {
+      title: "What Our Clients Say",
+      subtitle: "Trusted by businesses and individuals across Ethiopia for reliable European imports.",
+      reviews: [
+        { name: "Abebe T.", role: "Garage Owner, Addis Ababa", text: "Tolo12 found the exact genuine BMW parts I needed for a client. Delivered perfectly on time!" },
+        { name: "Sara M.", role: "Boutique Owner", text: "The premium cosmetics arrived in pristine condition. My customers love the authentic European quality." },
+        { name: "Dawit H.", role: "Construction Manager", text: "We rely on Tolo12 for heavy machinery components. Their sourcing is fast and extremely professional." }
+      ]
     }
   },
   am: {
@@ -117,6 +136,25 @@ export const translations = {
       getInTouch: "ይገናኙን",
       getInTouchDesc: "ጥያቄዎችዎን ለመመለስ እና የሚፈልጉትን በትክክል እንዲያገኙ ለመርዳት ዝግጁ ነን።",
       social: "ይከተሉን"
+    },
+    featured: {
+      title: "ተመራጭ ምርቶቻችን",
+      subtitle: "ለደንበኞቻችን በብዛት የምናመጣቸውን ከፍተኛ ጥራት ያላቸው ምርቶች ይመልከቱ።",
+      items: [
+        { name: "ቦሽ አልተርኔተር (Bosch)", category: "የመኪና እቃ" },
+        { name: "የቆዳ እንክብካቤ ምርቶች (L'Oréal)", category: "መዋቢያ" },
+        { name: "የካተርፒላር ፓምፕ (CAT)", category: "ማሽነሪ" },
+        { name: "ልዩ የቅንጦት ትዕዛዞች", category: "ልዩ ትዕዛዝ" }
+      ]
+    },
+    testimonials: {
+      title: "ደንበኞቻችን ምን ይላሉ",
+      subtitle: "በመላው ኢትዮጵያ ለሚገኙ ንግዶች እና ግለሰቦች አስተማማኝ አቅራቢ።",
+      reviews: [
+        { name: "አበበ ተ.", role: "የጋራዥ ባለቤት፣ አዲስ አበባ", text: "ለደንበኛዬ የሚሆን የቢኤምደብሊው (BMW) ኦሪጅናል እቃ በቀላሉ አግኝተውልኛል። በሰዓቱ ደርሶልኛል!" },
+        { name: "ሳራ መ.", role: "የቡቲክ ባለቤት", text: "ምርጥ የአውሮፓ መዋቢያዎች ያለምንም ችግር ደርሰውኛል። ደንበኞቼ የጥራቱን ልዩነት ወድደውታል።" },
+        { name: "ዳዊት ሀ.", role: "የኮንስትራክሽን ስራ አስኪያጅ", text: "ለከባድ ማሽነሪ እቃዎች ቶሎ12ን እንመርጣለን። አሰራራቸው ፈጣን እና እጅግ በጣም ፕሮፌሽናል ነው።" }
+      ]
     }
   }
 };

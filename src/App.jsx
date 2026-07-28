@@ -17,8 +17,21 @@ import { SiToyota, SiHyundai, SiKia, SiVolkswagen, SiFord, SiBmw, SiSuzuki, SiCa
 import heroBg from './assets/hero-bg.png';
 import imgCover from './assets/tolo12_cover.png';
 import imgCatCar from './assets/cat-car.png';
+import imgCatCar2 from './assets/cat-car-2.png';
+import imgCatCar3 from './assets/cat-car-3.png';
 import imgCatMachine from './assets/cat-machine.png';
+import imgCatMachine2 from './assets/cat-machine-2.png';
+import imgCatMachine3 from './assets/cat-machine-3.png';
 import imgCatCosmetics from './assets/cat-cosmetics.png';
+import imgCatCosmetics2 from './assets/cat-cosmetics-2.png';
+import imgCatCosmetics3 from './assets/cat-cosmetics-3.png';
+import featAlternator from './assets/feat-alternator.png';
+import featSkincare from './assets/feat-skincare.png';
+import featPump from './assets/feat-pump.png';
+import featCustom from './assets/feat-custom.png';
+import avatar1 from './assets/avatar-1.png';
+import avatar2 from './assets/avatar-2.png';
+import avatar3 from './assets/avatar-3.png';
 import { useLanguage } from './LanguageContext';
 
 // Reusable Scroll Reveal Component
@@ -47,9 +60,17 @@ const Reveal = ({ children }) => {
   );
 };
 
-// Image Magnifying Glass Component
-const InnerZoom = ({ src, alt, onClick }) => {
+// Image Magnifying Glass Component with Carousel
+const InnerZoom = ({ images, alt, onClick }) => {
   const [zoomStyle, setZoomStyle] = useState({ transformOrigin: 'center center', transform: 'scale(1)' });
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 4000); // Change image every 4 seconds
+    return () => clearInterval(timer);
+  }, [images]);
 
   const handleMouseMove = (e) => {
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
@@ -68,22 +89,29 @@ const InnerZoom = ({ src, alt, onClick }) => {
   return (
     <div 
       className="inner-zoom-container"
-      style={{ overflow: 'hidden', width: '100%', height: '100%', cursor: 'zoom-in' }}
+      style={{ overflow: 'hidden', width: '100%', height: '100%', cursor: 'zoom-in', position: 'relative' }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      onClick={onClick}
+      onClick={() => onClick(images[currentIndex])}
     >
-      <img 
-        src={src} 
-        alt={alt} 
-        style={{ 
-          width: '100%', 
-          height: '100%', 
-          objectFit: 'cover', 
-          transition: 'transform 0.1s ease-out', 
-          ...zoomStyle 
-        }} 
-      />
+      {images.map((imgSrc, i) => (
+        <img 
+          key={i}
+          src={imgSrc} 
+          alt={alt} 
+          style={{ 
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%', 
+            height: '100%', 
+            objectFit: 'cover', 
+            transition: 'opacity 0.8s ease-in-out, transform 0.1s ease-out', 
+            opacity: i === currentIndex ? 1 : 0,
+            ...zoomStyle 
+          }} 
+        />
+      ))}
     </div>
   );
 };
@@ -138,8 +166,18 @@ function App() {
       </nav>
 
       {/* Unified Background Wrapper for Hero and Marquee */}
-      <div className="unified-bg-wrapper" style={{ position: 'relative', overflow: 'hidden' }}>
-        <img src={heroBg} alt="Industrial Warehouse" className="hero-bg" />
+      <div 
+        className="unified-bg-wrapper parallax-bg" 
+        style={{ 
+          position: 'relative', 
+          overflow: 'hidden',
+          backgroundImage: `url(${heroBg})`,
+          backgroundAttachment: 'fixed',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover'
+        }}
+      >
         <div className="hero-overlay"></div>
 
         {/* Hero Section */}
@@ -171,20 +209,34 @@ function App() {
 
         {/* Automotive Brand Marquee */}
         <div className="trust-marquee ribbon-bg">
-        <div className="marquee-content">
-          {[...Array(3)].map((_, i) => (
-            <div key={i} className="marquee-set">
-              <div className="logo-3d-wrapper"><SiToyota size={90} color="#EB0A1E" /></div>
-              <div className="logo-3d-wrapper"><SiHyundai size={90} color="#002C5F" /></div>
-              <div className="logo-3d-wrapper"><SiKia size={90} color="#05141F" /></div>
-              <div className="logo-3d-wrapper"><SiVolkswagen size={90} color="#001E50" /></div>
-              <div className="logo-3d-wrapper"><SiFord size={90} color="#003478" /></div>
-              <div className="logo-3d-wrapper"><SiBmw size={90} color="#0066B1" /></div>
-              <div className="logo-3d-wrapper"><SiSuzuki size={90} color="#E32028" /></div>
-              <div className="logo-3d-wrapper"><SiCaterpillar size={90} color="#FFB81C" /></div>
-            </div>
-          ))}
+          <div className="marquee-content">
+            {[...Array(3)].map((_, i) => (
+              <div key={i} className="marquee-set">
+                <div className="logo-3d-wrapper"><SiToyota size={90} color="#EB0A1E" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiHyundai size={90} color="#002C5F" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiKia size={90} color="#05141F" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiVolkswagen size={90} color="#001E50" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiFord size={90} color="#003478" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiBmw size={90} color="#0066B1" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+              </div>
+            ))}
+          </div>
         </div>
+
+        {/* Machinery Brand Marquee (Reverse) */}
+        <div className="trust-marquee ribbon-bg" style={{ paddingBottom: '3rem', paddingTop: '1rem' }}>
+          <div className="marquee-content" style={{ animationDirection: 'reverse' }}>
+            {[...Array(3)].map((_, i) => (
+              <div key={i} className="marquee-set">
+                <div className="logo-3d-wrapper"><SiCaterpillar size={90} color="#FFB81C" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiSuzuki size={90} color="#E32028" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiBmw size={90} color="#0066B1" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiFord size={90} color="#003478" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiHyundai size={90} color="#002C5F" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiToyota size={90} color="#EB0A1E" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+              </div>
+            ))}
+          </div>
         </div>
         
         {/* Wave Divider */}
@@ -205,15 +257,19 @@ function App() {
 
           <div className="supply-grid-4">
             {t.supply.categories.slice(0, 3).map((cat, index) => {
-              const catImages = [imgCatCar, imgCatCosmetics, imgCatMachine];
+              const catImagesGroup = [
+                [imgCatCar, imgCatCar2, imgCatCar3],
+                [imgCatCosmetics, imgCatCosmetics2, imgCatCosmetics3],
+                [imgCatMachine, imgCatMachine2, imgCatMachine3]
+              ];
               return (
                 <Reveal key={index}>
                   <div className="supply-card glass-panel" style={{ padding: '0', height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
                     <div className="supply-card-img-wrapper" style={{ height: '220px', width: '100%' }}>
                       <InnerZoom 
-                        src={catImages[index]} 
+                        images={catImagesGroup[index]} 
                         alt={cat.title} 
-                        onClick={() => setLightboxImage(catImages[index])} 
+                        onClick={(img) => setLightboxImage(img)} 
                       />
                     </div>
                     <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'center' }}>
@@ -238,26 +294,90 @@ function App() {
         </div>
       </section>
 
+      {/* Featured Imports */}
+      <section id="featured" className="featured bg-darker">
+        <div className="container">
+          <Reveal>
+            <h2 className="section-title">{t.featured?.title || "Featured Imports"}</h2>
+            <p className="section-subtitle">{t.featured?.subtitle || "High-quality products we regularly source."}</p>
+          </Reveal>
+          
+          <div className="supply-grid-4" style={{ marginTop: '3rem' }}>
+            {t.featured?.items?.map((item, index) => {
+              const featImages = [featAlternator, featSkincare, featPump, featCustom];
+              return (
+                <Reveal key={index}>
+                  <div className="glass-panel" style={{ padding: '0', overflow: 'hidden', display: 'flex', flexDirection: 'column', height: '100%' }}>
+                    <div style={{ height: '200px', width: '100%' }}>
+                      <img src={featImages[index]} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
+                    <div style={{ padding: '1.5rem', textAlign: 'center' }}>
+                      <p style={{ color: 'var(--color-accent-green)', fontSize: '0.9rem', marginBottom: '0.5rem', fontWeight: 'bold' }}>{item.category}</p>
+                      <h4 style={{ fontSize: '1.2rem' }}>{item.name}</h4>
+                    </div>
+                  </div>
+                </Reveal>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* How It Works */}
-      <section id="how-it-works" className="works bg-darker">
+      <section id="how-it-works" className="works">
         <div className="container">
           <Reveal>
             <h2 className="section-title">{t.works.title}</h2>
             <p className="section-subtitle">{t.works.subtitle}</p>
           </Reveal>
           
-          <div className="steps-container" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+          <div className="steps-container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', marginTop: '3rem', position: 'relative' }}>
             {t.works.steps.map((step, index) => (
               <Reveal key={index}>
-                <div className="step-card glass-panel">
-                  <span className="step-number">0{index + 1}</span>
-                  <div className="step-content">
-                    <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem' }}>{step.title}</h3>
-                    <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.5 }}>{step.desc}</p>
+                <div className="step-card glass-panel" style={{ textAlign: 'center', padding: '3rem 2rem', position: 'relative', borderTop: '4px solid var(--color-accent-green)' }}>
+                  <div className="step-number" style={{ position: 'absolute', top: '-25px', left: '50%', transform: 'translateX(-50%)', background: 'var(--color-accent-green)', color: '#0a192f', width: '50px', height: '50px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 'bold', border: '4px solid #0a192f' }}>
+                    {index + 1}
+                  </div>
+                  <div className="step-content" style={{ marginTop: '1rem' }}>
+                    <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem' }}>{step.title}</h3>
+                    <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.6 }}>{step.desc}</p>
                   </div>
                 </div>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section id="testimonials" className="testimonials bg-darker">
+        <div className="container">
+          <Reveal>
+            <h2 className="section-title">{t.testimonials?.title || "Testimonials"}</h2>
+            <p className="section-subtitle">{t.testimonials?.subtitle || "What our clients say about us."}</p>
+          </Reveal>
+          
+          <div className="supply-grid-4" style={{ marginTop: '3rem', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
+            {t.testimonials?.reviews?.map((review, index) => {
+              const avatars = [avatar1, avatar2, avatar3];
+              return (
+                <Reveal key={index}>
+                  <div className="glass-panel" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', height: '100%' }}>
+                    <div style={{ color: 'var(--color-accent-green)', display: 'flex', gap: '0.25rem' }}>
+                      {[...Array(5)].map((_, i) => <span key={i}>★</span>)}
+                    </div>
+                    <p style={{ fontStyle: 'italic', color: 'var(--color-text-muted)', lineHeight: 1.6, flex: 1 }}>"{review.text}"</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '1rem' }}>
+                      <img src={avatars[index]} alt={review.name} style={{ width: '50px', height: '50px', borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--color-accent-green)' }} />
+                      <div>
+                        <h4 style={{ margin: 0, fontSize: '1.1rem' }}>{review.name}</h4>
+                        <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>{review.role}</p>
+                      </div>
+                    </div>
+                  </div>
+                </Reveal>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -355,9 +475,12 @@ function App() {
       {/* Lightbox Modal */}
       {lightboxImage && (
         <div className="lightbox-overlay" onClick={() => setLightboxImage(null)}>
-          <div className="lightbox-content" onClick={e => e.stopPropagation()}>
+          <div className="lightbox-content" onClick={e => e.stopPropagation()} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <button className="lightbox-close" onClick={() => setLightboxImage(null)}><X size={32} /></button>
             <img src={lightboxImage} alt="Magnified Category View" />
+            <a href="#contact" className="btn-primary" style={{ marginTop: '1.5rem', marginBottom: '1rem' }} onClick={() => setLightboxImage(null)}>
+              {language === 'am' ? 'ለዚህ ምርት ዋጋ ይጠይቁ' : 'Request a Quote'}
+            </a>
           </div>
         </div>
       )}
