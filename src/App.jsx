@@ -148,6 +148,7 @@ function App() {
   const { language, changeLanguage, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [lightboxImage, setLightboxImage] = useState(null);
+  const [orderModal, setOrderModal] = useState(null);
 
   return (
     <>
@@ -223,10 +224,11 @@ function App() {
                 </a>
                 
                 <div className="hero-social-links" style={{ display: 'flex', gap: '1.5rem', marginTop: '1rem' }}>
-                   <a href="https://wa.me/393514604320" target="_blank" rel="noopener noreferrer" className="social-link" title="WhatsApp"><FaWhatsapp size={40} /></a>
-                   <a href="https://t.me/+393514604320" target="_blank" rel="noopener noreferrer" className="social-link" title="Telegram"><FaTelegram size={40} /></a>
-                   <a href="https://www.instagram.com/tologhebeya/" target="_blank" rel="noopener noreferrer" className="social-link" title="Instagram"><FaInstagram size={40} /></a>
-                   <a href="https://www.tiktok.com/@tologhebeya?_r=1&_t=ZN-97rv7b5LiKp" target="_blank" rel="noopener noreferrer" className="social-link" title="TikTok"><FaTiktok size={40} /></a>
+                   <a href="https://t.me/+393514604320" target="_blank" rel="noopener noreferrer" className="social-link" title="Telegram" style={{ color: '#0088cc' }}><FaTelegram size={40} /></a>
+                   <a href="https://wa.me/393514604320" target="_blank" rel="noopener noreferrer" className="social-link" title="WhatsApp" style={{ color: '#25D366' }}><FaWhatsapp size={40} /></a>
+                   <a href="https://www.instagram.com/tologhebeya/" target="_blank" rel="noopener noreferrer" className="social-link" title="Instagram" style={{ color: '#E1306C' }}><FaInstagram size={40} /></a>
+                   <a href="https://www.tiktok.com/@tologhebeya?_r=1&_t=ZN-97rv7b5LiKp" target="_blank" rel="noopener noreferrer" className="social-link" title="TikTok" style={{ color: '#ffffff', filter: 'drop-shadow(2px 2px 0px #ff0050) drop-shadow(-2px -2px 0px #00f2fe)' }}><FaTiktok size={40} /></a>
+                   <a href="https://www.facebook.com/profile.php?id=61591924945173" target="_blank" rel="noopener noreferrer" className="social-link" title="Facebook" style={{ color: '#1877F2' }}><FaFacebook size={40} /></a>
                 </div>
               </div>
             </div>
@@ -300,9 +302,14 @@ function App() {
                         onClick={(img) => setLightboxImage(img)} 
                       />
                     </div>
-                    <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'center' }}>
-                      <h3 className="supply-title" style={{ fontSize: '1.4rem' }}>{cat.title}</h3>
-                      <p style={{ color: 'var(--color-text-muted)', marginTop: '0.75rem', lineHeight: 1.4 }}>{cat.desc}</p>
+                    <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
+                      <div>
+                        <h3 className="supply-title" style={{ fontSize: '1.4rem' }}>{cat.title}</h3>
+                        <p style={{ color: 'var(--color-text-muted)', marginTop: '0.75rem', lineHeight: 1.4 }}>{cat.desc}</p>
+                      </div>
+                      <button className="btn-outline" style={{ marginTop: '1.5rem', width: '100%' }} onClick={() => setOrderModal(index)}>
+                        {t.orderModal?.btn || 'How to Order'}
+                      </button>
                     </div>
                   </div>
                 </Reveal>
@@ -315,7 +322,9 @@ function App() {
                 <HelpCircle size={50} className="supply-icon" style={{ marginBottom: '1rem' }} />
                 <h3 className="supply-title" style={{ fontSize: '1.4rem' }}>{t.supply.categories[3].title}</h3>
                 <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem', marginTop: '0.75rem', lineHeight: 1.4 }}>{t.supply.categories[3].desc}</p>
-                <a href="#contact" className="btn-outline" style={{ marginTop: '1.5rem' }}>{t.nav.contact}</a>
+                <button className="btn-outline" style={{ marginTop: '1.5rem', width: '100%' }} onClick={() => setOrderModal(3)}>
+                  {t.orderModal?.btn || 'How to Order'}
+                </button>
               </div>
             </Reveal>
           </div>
@@ -432,8 +441,11 @@ function App() {
                   </ul>
                 </div>
 
+                <a href="https://t.me/+393514604320" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ width: '100%', marginBottom: '1rem', backgroundColor: '#0088cc', borderColor: '#0088cc' }}>
+                  <FaTelegram size={24} /> {t.contact.btnTelegram}
+                </a>
                 <a href="https://wa.me/393514604320" target="_blank" rel="noopener noreferrer" className="btn-primary btn-whatsapp" style={{ width: '100%', marginBottom: '1rem' }}>
-                  <MessageSquare size={24} /> {t.contact.btnWhatsapp}
+                  <FaWhatsapp size={24} /> {t.contact.btnWhatsapp}
                 </a>
               </div>
             </Reveal>
@@ -450,10 +462,11 @@ function App() {
 
                 <h4 style={{ marginTop: '2rem', marginBottom: '1rem' }}>{t.contact.social}</h4>
                 <div className="social-links" style={{ gap: '1.5rem' }}>
-                  <a href="https://www.facebook.com/profile.php?id=61591924945173" target="_blank" rel="noopener noreferrer" className="social-link"><FaFacebook size={28} /></a>
-                  <a href="https://www.instagram.com/tologhebeya/" target="_blank" rel="noopener noreferrer" className="social-link"><FaInstagram size={28} /></a>
-                  <a href="https://www.tiktok.com/@tologhebeya?_r=1&_t=ZN-97rv7b5LiKp" target="_blank" rel="noopener noreferrer" className="social-link"><FaTiktok size={28} /></a>
-                  <a href="https://t.me/+393514604320" target="_blank" rel="noopener noreferrer" className="social-link"><FaTelegram size={28} /></a>
+                  <a href="https://t.me/+393514604320" target="_blank" rel="noopener noreferrer" className="social-link" style={{ color: '#0088cc' }}><FaTelegram size={28} /></a>
+                  <a href="https://wa.me/393514604320" target="_blank" rel="noopener noreferrer" className="social-link" style={{ color: '#25D366' }}><FaWhatsapp size={28} /></a>
+                  <a href="https://www.instagram.com/tologhebeya/" target="_blank" rel="noopener noreferrer" className="social-link" style={{ color: '#E1306C' }}><FaInstagram size={28} /></a>
+                  <a href="https://www.tiktok.com/@tologhebeya?_r=1&_t=ZN-97rv7b5LiKp" target="_blank" rel="noopener noreferrer" className="social-link" style={{ color: '#ffffff', filter: 'drop-shadow(2px 2px 0px #ff0050) drop-shadow(-2px -2px 0px #00f2fe)' }}><FaTiktok size={28} /></a>
+                  <a href="https://www.facebook.com/profile.php?id=61591924945173" target="_blank" rel="noopener noreferrer" className="social-link" style={{ color: '#1877F2' }}><FaFacebook size={28} /></a>
                 </div>
               </div>
             </Reveal>
@@ -509,6 +522,32 @@ function App() {
             <a href="#contact" className="btn-primary" style={{ marginTop: '1.5rem', marginBottom: '1rem' }} onClick={() => setLightboxImage(null)}>
               {language === 'am' ? 'ለዚህ ምርት ዋጋ ይጠይቁ' : 'Request a Quote'}
             </a>
+          </div>
+        </div>
+      )}
+
+      {/* Order Modal */}
+      {orderModal !== null && (
+        <div className="lightbox-overlay" onClick={() => setOrderModal(null)}>
+          <div className="glass-panel" onClick={e => e.stopPropagation()} style={{ padding: '3rem', maxWidth: '500px', width: '90%', position: 'relative', textAlign: 'center' }}>
+            <button className="lightbox-close" style={{ top: '15px', right: '15px' }} onClick={() => setOrderModal(null)}><X size={28} /></button>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', color: 'var(--color-accent-green)' }}>{t.orderModal?.title || 'How to Order'}</h3>
+            <div style={{ textAlign: 'left', background: 'rgba(0,0,0,0.2)', padding: '1.5rem', borderRadius: '8px', marginBottom: '2rem' }}>
+              <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>{t.contact.sendUs}</p>
+              <ol style={{ paddingLeft: '1.5rem', lineHeight: '1.6', margin: 0 }}>
+                {(orderModal === 1 ? t.orderModal?.stepsCosmetics : (orderModal === 3 ? t.orderModal?.stepsCustom : t.orderModal?.stepsCarMachine))?.map((step, idx) => (
+                  <li key={idx} style={{ marginBottom: '0.5rem' }}>{step}</li>
+                ))}
+              </ol>
+            </div>
+            <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+              <a href="https://t.me/+393514604320" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ width: '100%', backgroundColor: '#0088cc', borderColor: '#0088cc' }}>
+                <FaTelegram size={24} /> {t.contact.btnTelegram}
+              </a>
+              <a href="https://wa.me/393514604320" target="_blank" rel="noopener noreferrer" className="btn-primary btn-whatsapp" style={{ width: '100%' }}>
+                <FaWhatsapp size={24} /> {t.contact.btnWhatsapp}
+              </a>
+            </div>
           </div>
         </div>
       )}

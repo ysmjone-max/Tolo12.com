@@ -54,9 +54,27 @@ export const translations = {
         "Links to the product"
       ],
       btnWhatsapp: "Message on WhatsApp",
+      btnTelegram: "Message on Telegram",
       getInTouch: "Get in Touch",
       getInTouchDesc: "We are available to answer your questions and help you find exactly what you need.",
       social: "Follow Us"
+    },
+    orderModal: {
+      btn: "How to Order",
+      title: "How to Order this Item",
+      stepsCarMachine: [
+        "1. Spare part number",
+        "2. Picture of the item"
+      ],
+      stepsCosmetics: [
+        "1. Name of the material",
+        "2. Picture of it"
+      ],
+      stepsCustom: [
+        "1. Name or description of the item",
+        "2. Picture or link to the item"
+      ],
+      close: "Close"
     },
     featured: {
       title: "Featured Imports",
@@ -133,9 +151,27 @@ export const translations = {
         "ወደ ምርቱ የሚወስዱ ሊንኮች"
       ],
       btnWhatsapp: "በዋትስአፕ መልዕክት ይላኩ",
+      btnTelegram: "በቴሌግራም መልዕክት ይላኩ",
       getInTouch: "ይገናኙን",
       getInTouchDesc: "ጥያቄዎችዎን ለመመለስ እና የሚፈልጉትን በትክክል እንዲያገኙ ለመርዳት ዝግጁ ነን።",
       social: "ይከተሉን"
+    },
+    orderModal: {
+      btn: "እንዴት ማዘዝ ይቻላል",
+      title: "ይህን እቃ እንዴት ማዘዝ እንደሚችሉ",
+      stepsCarMachine: [
+        "1. የእቃው ቁጥር (Part Number)",
+        "2. የእቃው ፎቶ"
+      ],
+      stepsCosmetics: [
+        "1. የእቃው ስም",
+        "2. የእቃው ፎቶ"
+      ],
+      stepsCustom: [
+        "1. የእቃው ስም ወይም ማብራሪያ",
+        "2. ፎቶ ወይም ሊንክ"
+      ],
+      close: "ዝጋ"
     },
     featured: {
       title: "ተመራጭ ምርቶቻችን",
