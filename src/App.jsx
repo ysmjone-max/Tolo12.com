@@ -63,12 +63,12 @@ const Reveal = ({ children }) => {
 // Cosmetic Text Logos Component
 const CosmeticLogo = ({ name, type }) => {
   const styles = {
-    chanel: { fontFamily: '"Montserrat", "Helvetica Neue", sans-serif', letterSpacing: '0.3em', fontWeight: 600, fontSize: '2rem' },
-    dior: { fontFamily: '"Playfair Display", "Times New Roman", serif', letterSpacing: '0.1em', fontWeight: 700, fontSize: '2.5rem' },
-    loreal: { fontFamily: '"Arial", sans-serif', letterSpacing: '0.15em', fontWeight: 600, fontSize: '2.2rem' },
-    mac: { fontFamily: '"Arial Black", sans-serif', letterSpacing: '-0.05em', fontWeight: 900, fontSize: '2.5rem' },
-    clinique: { fontFamily: '"Times New Roman", serif', letterSpacing: '0.15em', fontWeight: 500, fontSize: '2.2rem' },
-    estee: { fontFamily: '"Optima", "Segoe UI", sans-serif', letterSpacing: '0.2em', fontWeight: 400, fontSize: '1.2rem', textAlign: 'center', lineHeight: 1.2 }
+    chanel: { fontFamily: '"Montserrat", "Helvetica Neue", sans-serif', letterSpacing: '0.3em', fontWeight: 600, fontSize: '2.5rem', background: 'linear-gradient(45deg, #FFD700, #FDB931)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+    dior: { fontFamily: '"Playfair Display", "Times New Roman", serif', letterSpacing: '0.1em', fontWeight: 700, fontSize: '3rem', background: 'linear-gradient(45deg, #C0C0C0, #FFFFFF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+    loreal: { fontFamily: '"Arial", sans-serif', letterSpacing: '0.15em', fontWeight: 600, fontSize: '2.5rem', background: 'linear-gradient(45deg, #FF69B4, #FF1493)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+    mac: { fontFamily: '"Arial Black", sans-serif', letterSpacing: '-0.05em', fontWeight: 900, fontSize: '3rem', background: 'linear-gradient(45deg, #00CED1, #20B2AA)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+    clinique: { fontFamily: '"Times New Roman", serif', letterSpacing: '0.15em', fontWeight: 500, fontSize: '2.5rem', background: 'linear-gradient(45deg, #98FB98, #3CB371)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+    estee: { fontFamily: '"Optima", "Segoe UI", sans-serif', letterSpacing: '0.2em', fontWeight: 400, fontSize: '1.5rem', textAlign: 'center', lineHeight: 1.2, background: 'linear-gradient(45deg, #4169E1, #87CEEB)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }
   };
   
   return (

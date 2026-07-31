@@ -441,7 +441,7 @@ footer {
 .marquee-content {
   display: flex;
   width: max-content;
-  animation: scroll 35s linear infinite;
+  animation: scroll 20s linear infinite;
 }
 
 .marquee-content:hover {
@@ -450,8 +450,8 @@ footer {
 
 .marquee-set {
   display: flex;
-  gap: 6rem;
-  padding-right: 6rem;
+  gap: 3rem;
+  padding-right: 3rem;
 }
 
 .logo-3d-wrapper {
@@ -574,7 +574,11 @@ footer {
     grid-template-columns: 1fr;
   }
   .marquee-content {
-    gap: 2rem;
+    gap: 1.5rem;
+  }
+  .marquee-set {
+    gap: 1.5rem;
+    padding-right: 1.5rem;
   }
   .marquee-content span {
     font-size: 1.2rem;
