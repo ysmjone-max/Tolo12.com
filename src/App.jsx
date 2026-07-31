@@ -13,7 +13,7 @@ import {
   HelpCircle
 } from 'lucide-react';
 import { FaFacebook, FaInstagram, FaTiktok, FaTelegram, FaCar, FaWhatsapp } from "react-icons/fa6";
-import { SiToyota, SiHyundai, SiKia, SiVolkswagen, SiFord, SiBmw, SiSuzuki, SiCaterpillar } from "react-icons/si";
+import { SiToyota, SiHyundai, SiKia, SiVolkswagen, SiFord, SiBmw, SiSuzuki, SiCaterpillar, SiHonda, SiNissan, SiAudi, SiVolvo, SiChevrolet, SiMazda } from "react-icons/si";
 import heroBg from './assets/hero-bg.png';
 import imgCover from './assets/tolo12_cover.png';
 import imgCatCar from './assets/cat-car.png';
@@ -25,10 +25,7 @@ import imgCatMachine3 from './assets/cat-machine-3.png';
 import imgCatCosmetics from './assets/cat-cosmetics.png';
 import imgCatCosmetics2 from './assets/cat-cosmetics-2.png';
 import imgCatCosmetics3 from './assets/cat-cosmetics-3.png';
-import featAlternator from './assets/feat-alternator.png';
-import featSkincare from './assets/feat-skincare.png';
-import featPump from './assets/feat-pump.png';
-import featCustom from './assets/feat-custom.png';
+
 import avatar1 from './assets/avatar-1.png';
 import avatar2 from './assets/avatar-2.png';
 import avatar3 from './assets/avatar-3.png';
@@ -210,31 +207,28 @@ function App() {
         <div className="hero-overlay"></div>
 
         {/* Hero Section */}
-        <section className="hero" style={{ minHeight: '85vh' }}>
-        <div className="container">
-          <Reveal>
-            <div className="hero-content" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '0 auto' }}>
-              <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', maxWidth: '900px', lineHeight: 1.2 }}>
-                {t.hero.title1} <span className="text-gradient">{t.hero.title2}</span>
-              </h1>
+        <section className="hero">
+        <div className="container" style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
+          <div className="hero-content" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '0 auto', width: '100%' }}>
+            <h1 className="hero-title animate-hero delay-1" style={{ maxWidth: '900px', lineHeight: 1.2 }}>
+              {t.hero.title1} <span>{t.hero.title2}</span>
+            </h1>
+            
+            <div className="hero-buttons" style={{ flexDirection: 'column', alignItems: 'center', gap: '1.5rem', marginTop: '3rem' }}>
+              <a href="#contact" className="btn-primary animate-hero delay-2" style={{ padding: '1rem 3rem', fontSize: '1.25rem' }}>
+                {t.hero.btnQuote} <ArrowRight size={20} />
+              </a>
               
-              <div className="hero-buttons" style={{ flexDirection: 'column', alignItems: 'center', gap: '1.5rem', marginTop: '3rem' }}>
-                <a href="#contact" className="btn-primary" style={{ padding: '1rem 3rem', fontSize: '1.25rem' }}>
-                  {t.hero.btnQuote} <ArrowRight size={20} />
-                </a>
-                
-                <div className="hero-social-links" style={{ display: 'flex', gap: '1.5rem', marginTop: '1rem' }}>
-                   <a href="https://t.me/+393514604320" target="_blank" rel="noopener noreferrer" className="social-link" title="Telegram" style={{ color: '#0088cc' }}><FaTelegram size={40} /></a>
-                   <a href="https://wa.me/393514604320" target="_blank" rel="noopener noreferrer" className="social-link" title="WhatsApp" style={{ color: '#25D366' }}><FaWhatsapp size={40} /></a>
-                   <a href="https://www.instagram.com/tologhebeya/" target="_blank" rel="noopener noreferrer" className="social-link" title="Instagram" style={{ color: '#E1306C' }}><FaInstagram size={40} /></a>
-                   <a href="https://www.tiktok.com/@tologhebeya?_r=1&_t=ZN-97rv7b5LiKp" target="_blank" rel="noopener noreferrer" className="social-link" title="TikTok" style={{ color: '#ffffff', filter: 'drop-shadow(2px 2px 0px #ff0050) drop-shadow(-2px -2px 0px #00f2fe)' }}><FaTiktok size={40} /></a>
-                   <a href="https://www.facebook.com/profile.php?id=61591924945173" target="_blank" rel="noopener noreferrer" className="social-link" title="Facebook" style={{ color: '#1877F2' }}><FaFacebook size={40} /></a>
-                </div>
+              <div className="hero-social-links animate-hero delay-3" style={{ display: 'flex', gap: '1.5rem', marginTop: '1rem' }}>
+                 <a href="https://t.me/+393514604320" target="_blank" rel="noopener noreferrer" className="social-link" title="Telegram" style={{ color: '#0088cc' }}><FaTelegram size={40} /></a>
+                 <a href="https://wa.me/393514604320" target="_blank" rel="noopener noreferrer" className="social-link" title="WhatsApp" style={{ color: '#25D366' }}><FaWhatsapp size={40} /></a>
+                 <a href="https://www.instagram.com/tologhebeya/" target="_blank" rel="noopener noreferrer" className="social-link" title="Instagram" style={{ color: '#E1306C' }}><FaInstagram size={40} /></a>
+                 <a href="https://www.tiktok.com/@tologhebeya?_r=1&_t=ZN-97rv7b5LiKp" target="_blank" rel="noopener noreferrer" className="social-link" title="TikTok" style={{ color: '#ffffff', filter: 'drop-shadow(2px 2px 0px #ff0050) drop-shadow(-2px -2px 0px #00f2fe)' }}><FaTiktok size={40} /></a>
+                 <a href="https://www.facebook.com/profile.php?id=61591924945173" target="_blank" rel="noopener noreferrer" className="social-link" title="Facebook" style={{ color: '#1877F2' }}><FaFacebook size={40} /></a>
               </div>
             </div>
-          </Reveal>
+          </div>
         </div>
-
         </section>
 
         {/* Automotive & Machinery Brand Marquee */}
@@ -248,6 +242,14 @@ function App() {
                 <div className="logo-3d-wrapper"><SiVolkswagen size={90} color="#001E50" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
                 <div className="logo-3d-wrapper"><SiFord size={90} color="#003478" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
                 <div className="logo-3d-wrapper"><SiBmw size={90} color="#0066B1" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiHonda size={90} color="#E40521" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiNissan size={90} color="#C3002F" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiAudi size={90} color="#ffffff" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiVolvo size={90} color="#1c5a92" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiChevrolet size={90} color="#CD9E34" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiMazda size={90} color="#ffffff" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiKia size={90} color="#ffffff" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiSuzuki size={90} color="#E11937" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
               </div>
             ))}
           </div>
@@ -299,7 +301,7 @@ function App() {
                       <InnerZoom 
                         images={catImagesGroup[index]} 
                         alt={cat.title} 
-                        onClick={(img) => setLightboxImage(img)} 
+                        onClick={(img) => setLightboxImage({ src: img, index })} 
                       />
                     </div>
                     <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
@@ -327,35 +329,6 @@ function App() {
                 </button>
               </div>
             </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Imports */}
-      <section id="featured" className="featured bg-darker">
-        <div className="container">
-          <Reveal>
-            <h2 className="section-title">{t.featured?.title || "Featured Imports"}</h2>
-            <p className="section-subtitle">{t.featured?.subtitle || "High-quality products we regularly source."}</p>
-          </Reveal>
-          
-          <div className="supply-grid-4" style={{ marginTop: '3rem' }}>
-            {t.featured?.items?.map((item, index) => {
-              const featImages = [featAlternator, featSkincare, featPump, featCustom];
-              return (
-                <Reveal key={index}>
-                  <div className="glass-panel" style={{ padding: '0', overflow: 'hidden', display: 'flex', flexDirection: 'column', height: '100%' }}>
-                    <div style={{ height: '200px', width: '100%' }}>
-                      <img src={featImages[index]} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    </div>
-                    <div style={{ padding: '1.5rem', textAlign: 'center' }}>
-                      <p style={{ color: 'var(--color-accent-green)', fontSize: '0.9rem', marginBottom: '0.5rem', fontWeight: 'bold' }}>{item.category}</p>
-                      <h4 style={{ fontSize: '1.2rem' }}>{item.name}</h4>
-                    </div>
-                  </div>
-                </Reveal>
-              )
-            })}
           </div>
         </div>
       </section>
@@ -461,12 +434,12 @@ function App() {
                 </ul>
 
                 <h4 style={{ marginTop: '2rem', marginBottom: '1rem' }}>{t.contact.social}</h4>
-                <div className="social-links" style={{ gap: '1.5rem' }}>
-                  <a href="https://t.me/+393514604320" target="_blank" rel="noopener noreferrer" className="social-link" style={{ color: '#0088cc' }}><FaTelegram size={28} /></a>
-                  <a href="https://wa.me/393514604320" target="_blank" rel="noopener noreferrer" className="social-link" style={{ color: '#25D366' }}><FaWhatsapp size={28} /></a>
-                  <a href="https://www.instagram.com/tologhebeya/" target="_blank" rel="noopener noreferrer" className="social-link" style={{ color: '#E1306C' }}><FaInstagram size={28} /></a>
-                  <a href="https://www.tiktok.com/@tologhebeya?_r=1&_t=ZN-97rv7b5LiKp" target="_blank" rel="noopener noreferrer" className="social-link" style={{ color: '#ffffff', filter: 'drop-shadow(2px 2px 0px #ff0050) drop-shadow(-2px -2px 0px #00f2fe)' }}><FaTiktok size={28} /></a>
-                  <a href="https://www.facebook.com/profile.php?id=61591924945173" target="_blank" rel="noopener noreferrer" className="social-link" style={{ color: '#1877F2' }}><FaFacebook size={28} /></a>
+                <div className="social-links" style={{ gap: '1.5rem', display: 'flex', flexWrap: 'wrap' }}>
+                  <a href="https://t.me/+393514604320" target="_blank" rel="noopener noreferrer" className="social-link" style={{ color: '#0088cc', backgroundColor: 'rgba(255,255,255,0.1)', padding: '10px', borderRadius: '50%' }}><FaTelegram size={28} /></a>
+                  <a href="https://wa.me/393514604320" target="_blank" rel="noopener noreferrer" className="social-link" style={{ color: '#25D366', backgroundColor: 'rgba(255,255,255,0.1)', padding: '10px', borderRadius: '50%' }}><FaWhatsapp size={28} /></a>
+                  <a href="https://www.instagram.com/tologhebeya/" target="_blank" rel="noopener noreferrer" className="social-link" style={{ color: '#E1306C', backgroundColor: 'rgba(255,255,255,0.1)', padding: '10px', borderRadius: '50%' }}><FaInstagram size={28} /></a>
+                  <a href="https://www.tiktok.com/@tologhebeya?_r=1&_t=ZN-97rv7b5LiKp" target="_blank" rel="noopener noreferrer" className="social-link" style={{ color: '#ffffff', filter: 'drop-shadow(2px 2px 0px #ff0050) drop-shadow(-2px -2px 0px #00f2fe)', backgroundColor: 'rgba(255,255,255,0.1)', padding: '10px', borderRadius: '50%' }}><FaTiktok size={28} /></a>
+                  <a href="https://www.facebook.com/profile.php?id=61591924945173" target="_blank" rel="noopener noreferrer" className="social-link" style={{ color: '#1877F2', backgroundColor: 'rgba(255,255,255,0.1)', padding: '10px', borderRadius: '50%' }}><FaFacebook size={28} /></a>
                 </div>
               </div>
             </Reveal>
@@ -518,10 +491,13 @@ function App() {
         <div className="lightbox-overlay" onClick={() => setLightboxImage(null)}>
           <div className="lightbox-content" onClick={e => e.stopPropagation()} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <button className="lightbox-close" onClick={() => setLightboxImage(null)}><X size={32} /></button>
-            <img src={lightboxImage} alt="Magnified Category View" />
-            <a href="#contact" className="btn-primary" style={{ marginTop: '1.5rem', marginBottom: '1rem' }} onClick={() => setLightboxImage(null)}>
-              {language === 'am' ? 'ለዚህ ምርት ዋጋ ይጠይቁ' : 'Request a Quote'}
-            </a>
+            <img src={lightboxImage.src} alt="Magnified Category View" />
+            <button className="btn-primary" style={{ marginTop: '1.5rem', marginBottom: '1rem', cursor: 'pointer', border: 'none' }} onClick={() => {
+              setOrderModal(lightboxImage.index);
+              setLightboxImage(null);
+            }}>
+              {t.orderModal?.btn || 'How to Order'}
+            </button>
           </div>
         </div>
       )}
