@@ -508,23 +508,31 @@ function App() {
       {/* Order Modal */}
       {orderModal !== null && (
         <div className="lightbox-overlay" onClick={() => setOrderModal(null)}>
-          <div className="glass-panel" onClick={e => e.stopPropagation()} style={{ padding: '3rem', maxWidth: '500px', width: '90%', position: 'relative', textAlign: 'center' }}>
-            <button className="lightbox-close" style={{ top: '15px', right: '15px' }} onClick={() => setOrderModal(null)}><X size={28} /></button>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', color: 'var(--color-accent-green)' }}>{t.orderModal?.title || 'How to Order'}</h3>
-            <div style={{ textAlign: 'left', background: 'rgba(0,0,0,0.2)', padding: '1.5rem', borderRadius: '8px', marginBottom: '2rem' }}>
-              <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>{t.contact.sendUs}</p>
-              <ol style={{ paddingLeft: '1.5rem', lineHeight: '1.6', margin: 0 }}>
+          <div className="glass-panel" onClick={e => e.stopPropagation()} style={{ padding: '2.5rem', maxWidth: '450px', width: '90%', position: 'relative', textAlign: 'left', border: '1px solid rgba(0, 211, 127, 0.2)', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' }}>
+            <button className="lightbox-close" style={{ top: '15px', right: '15px' }} onClick={() => setOrderModal(null)}><X size={24} /></button>
+            
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', color: 'var(--color-accent-green)', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <HelpCircle size={24} /> {t.orderModal?.title || 'How to Order'}
+            </h3>
+            
+            <div style={{ marginBottom: '2rem' }}>
+              <p style={{ marginBottom: '1.25rem', color: 'var(--color-text-muted)', fontSize: '1.05rem' }}>{t.contact.sendUs}</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {(orderModal === 1 ? t.orderModal?.stepsCosmetics : (orderModal === 3 ? t.orderModal?.stepsCustom : t.orderModal?.stepsCarMachine))?.map((step, idx) => (
-                  <li key={idx} style={{ marginBottom: '0.5rem' }}>{step}</li>
+                  <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+                    <CheckCircle2 size={20} color="var(--color-accent-green)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                    <span style={{ lineHeight: '1.5', fontSize: '1.05rem' }}>{step}</span>
+                  </div>
                 ))}
-              </ol>
+              </div>
             </div>
-            <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
-              <a href="https://t.me/+393514604320" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ width: '100%', backgroundColor: '#0088cc', borderColor: '#0088cc' }}>
-                <FaTelegram size={24} /> {t.contact.btnTelegram}
+            
+            <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+              <a href="https://t.me/+393514604320" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ width: '100%', backgroundColor: '#0088cc', borderColor: '#0088cc', display: 'flex', justifyContent: 'flex-start', paddingLeft: '2rem', gap: '1.5rem' }}>
+                <FaTelegram size={24} /> <span>{t.contact.btnTelegram}</span>
               </a>
-              <a href="https://wa.me/393514604320" target="_blank" rel="noopener noreferrer" className="btn-primary btn-whatsapp" style={{ width: '100%' }}>
-                <FaWhatsapp size={24} /> {t.contact.btnWhatsapp}
+              <a href="https://wa.me/393514604320" target="_blank" rel="noopener noreferrer" className="btn-primary btn-whatsapp" style={{ width: '100%', display: 'flex', justifyContent: 'flex-start', paddingLeft: '2rem', gap: '1.5rem' }}>
+                <FaWhatsapp size={24} /> <span>{t.contact.btnWhatsapp}</span>
               </a>
             </div>
           </div>
