@@ -60,12 +60,12 @@ const Reveal = ({ children }) => {
 // Cosmetic Text Logos Component
 const CosmeticLogo = ({ name, type }) => {
   const styles = {
-    chanel: { fontFamily: '"Montserrat", "Helvetica Neue", sans-serif', letterSpacing: '0.3em', fontWeight: 600, fontSize: '2.5rem', background: 'linear-gradient(45deg, #FFD700, #FDB931)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
-    dior: { fontFamily: '"Playfair Display", "Times New Roman", serif', letterSpacing: '0.1em', fontWeight: 700, fontSize: '3rem', background: 'linear-gradient(45deg, #C0C0C0, #FFFFFF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
-    loreal: { fontFamily: '"Arial", sans-serif', letterSpacing: '0.15em', fontWeight: 600, fontSize: '2.5rem', background: 'linear-gradient(45deg, #FF69B4, #FF1493)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
-    mac: { fontFamily: '"Arial Black", sans-serif', letterSpacing: '-0.05em', fontWeight: 900, fontSize: '3rem', background: 'linear-gradient(45deg, #00CED1, #20B2AA)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
-    clinique: { fontFamily: '"Times New Roman", serif', letterSpacing: '0.15em', fontWeight: 500, fontSize: '2.5rem', background: 'linear-gradient(45deg, #98FB98, #3CB371)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
-    estee: { fontFamily: '"Optima", "Segoe UI", sans-serif', letterSpacing: '0.2em', fontWeight: 400, fontSize: '1.5rem', textAlign: 'center', lineHeight: 1.2, background: 'linear-gradient(45deg, #4169E1, #87CEEB)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }
+    chanel: { fontFamily: '"Montserrat", "Helvetica Neue", sans-serif', letterSpacing: '0.3em', fontWeight: 600, fontSize: '1.5rem', background: 'linear-gradient(45deg, #FFD700, #FDB931)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+    dior: { fontFamily: '"Playfair Display", "Times New Roman", serif', letterSpacing: '0.1em', fontWeight: 700, fontSize: '1.8rem', background: 'linear-gradient(45deg, #C0C0C0, #FFFFFF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+    loreal: { fontFamily: '"Arial", sans-serif', letterSpacing: '0.15em', fontWeight: 600, fontSize: '1.5rem', background: 'linear-gradient(45deg, #FF69B4, #FF1493)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+    mac: { fontFamily: '"Arial Black", sans-serif', letterSpacing: '-0.05em', fontWeight: 900, fontSize: '1.8rem', background: 'linear-gradient(45deg, #00CED1, #20B2AA)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+    clinique: { fontFamily: '"Times New Roman", serif', letterSpacing: '0.15em', fontWeight: 500, fontSize: '1.5rem', background: 'linear-gradient(45deg, #98FB98, #3CB371)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+    estee: { fontFamily: '"Optima", "Segoe UI", sans-serif', letterSpacing: '0.2em', fontWeight: 400, fontSize: '1rem', textAlign: 'center', lineHeight: 1.2, background: 'linear-gradient(45deg, #4169E1, #87CEEB)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }
   };
   
   return (
@@ -236,27 +236,27 @@ function App() {
           <div className="marquee-content">
             {[...Array(3)].map((_, i) => (
               <div key={i} className="marquee-set">
-                <div className="logo-3d-wrapper"><SiToyota size={90} color="#EB0A1E" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
-                <div className="logo-3d-wrapper"><SiHyundai size={90} color="#002C5F" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
-                <div className="logo-3d-wrapper"><SiCaterpillar size={90} color="#FFB81C" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
-                <div className="logo-3d-wrapper"><SiVolkswagen size={90} color="#001E50" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
-                <div className="logo-3d-wrapper"><SiFord size={90} color="#003478" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
-                <div className="logo-3d-wrapper"><SiBmw size={90} color="#0066B1" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
-                <div className="logo-3d-wrapper"><SiHonda size={90} color="#E40521" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
-                <div className="logo-3d-wrapper"><SiNissan size={90} color="#C3002F" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
-                <div className="logo-3d-wrapper"><SiAudi size={90} color="#ffffff" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
-                <div className="logo-3d-wrapper"><SiVolvo size={90} color="#1c5a92" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
-                <div className="logo-3d-wrapper"><SiChevrolet size={90} color="#CD9E34" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
-                <div className="logo-3d-wrapper"><SiMazda size={90} color="#ffffff" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
-                <div className="logo-3d-wrapper"><SiKia size={90} color="#ffffff" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
-                <div className="logo-3d-wrapper"><SiSuzuki size={90} color="#E11937" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiToyota size={45} color="#EB0A1E" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiHyundai size={45} color="#002C5F" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiCaterpillar size={45} color="#FFB81C" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiVolkswagen size={45} color="#001E50" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiFord size={45} color="#003478" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiBmw size={45} color="#0066B1" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiHonda size={45} color="#E40521" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiNissan size={45} color="#C3002F" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiAudi size={45} color="#ffffff" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiVolvo size={45} color="#1c5a92" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiChevrolet size={45} color="#CD9E34" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiMazda size={45} color="#ffffff" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiKia size={45} color="#ffffff" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
+                <div className="logo-3d-wrapper"><SiSuzuki size={45} color="#E11937" style={{filter: 'drop-shadow(0px 10px 15px rgba(255,255,255,0.4))'}} /></div>
               </div>
             ))}
           </div>
         </div>
 
         {/* Cosmetics Brand Marquee (Reverse) */}
-        <div className="trust-marquee ribbon-bg" style={{ paddingBottom: '3rem', paddingTop: '1rem' }}>
+        <div className="trust-marquee ribbon-bg">
           <div className="marquee-content" style={{ animationDirection: 'reverse' }}>
             {[...Array(3)].map((_, i) => (
               <div key={i} className="marquee-set">
@@ -481,9 +481,12 @@ function App() {
         </div>
       </footer>
 
-      {/* Floating WhatsApp Button */}
+      {/* Floating Action Buttons */}
       <a href="https://wa.me/393514604320" target="_blank" rel="noopener noreferrer" className="fab-whatsapp" aria-label="Chat on WhatsApp">
         <FaWhatsapp size={32} />
+      </a>
+      <a href="https://t.me/+393514604320" target="_blank" rel="noopener noreferrer" className="fab-telegram" aria-label="Chat on Telegram">
+        <FaTelegram size={32} />
       </a>
 
       {/* Lightbox Modal */}

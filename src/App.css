@@ -450,7 +450,7 @@ footer {
   overflow: hidden;
   position: relative;
   z-index: 2;
-  padding: 3rem 0;
+  padding: 0.75rem 0;
   background: linear-gradient(90deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.95) 50%, rgba(15, 23, 42, 0.8) 100%); /* Less transparent background */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -471,6 +471,7 @@ footer {
 
 .marquee-set {
   display: flex;
+  align-items: center;
   gap: 3rem;
   padding-right: 3rem;
 }
@@ -503,7 +504,7 @@ footer {
 .fab-whatsapp {
   position: fixed;
   bottom: 2rem;
-  right: 2rem;
+  left: 2rem;
   z-index: 99;
   width: 60px;
   height: 60px;
@@ -519,6 +520,33 @@ footer {
 
 .fab-whatsapp:hover {
   transform: scale(1.1) rotate(-10deg);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+}
+
+/* Telegram FAB */
+.fab-telegram {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 99;
+  width: 60px;
+  height: 60px;
+  background: #0088cc;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4);
+  transition: transform var(--transition-fast);
+}
+
+.fab-telegram:hover {
+  transform: scale(1.1) rotate(10deg);
 }
 
 @keyframes pulse {
@@ -619,6 +647,12 @@ footer {
     grid-template-columns: 1fr;
   }
   .fab-whatsapp {
+    bottom: 1.5rem;
+    left: 1.5rem;
+    width: 50px;
+    height: 50px;
+  }
+  .fab-telegram {
     bottom: 1.5rem;
     right: 1.5rem;
     width: 50px;
